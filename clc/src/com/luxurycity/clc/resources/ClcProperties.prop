@@ -1,0 +1,5 @@
+/main.clc=controller.Main
+/member/join.clc=controller.member.Join
+/member/idCheck.clc=controller.member.IdCheck
+/member/joinproc.clc=controller.member.Joinproc
+/member/login.clc=controller.member.Login

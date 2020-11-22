@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+	version="3.1" 
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd ">
+<!-- 	이파일은
+		jspcls 프로젝트에 한해서 적용시킬 설정을
+		지정하는 파일입니다.
+		
+		
+		<여기다가 @WebServlet({"/css/*","/js/*","/img/*"})이거 매핑할꺼임
+		<서블릿 정의>			
+ -->	<servlet>
+ 				<servlet-name>resrc</servlet-name>
+ 				<servlet-class>controller.Resrc</servlet-class>
+ 		</servlet>
+ 		
+	<!--  .cls로 들어오는 모든 요청 서블릿 -->
+		<servlet>
+ 				<servlet-name>ClcDispatch</servlet-name>
+ 				<servlet-class>dispatch.ClcDispatch</servlet-class>
+ 		</servlet>
+ 		
+ 		<!--  정의된 서블릿 매핑 -->
+ 		<servlet-mapping>
+ 				<servlet-name>resrc</servlet-name>
+ 				<url-pattern>/css/*</url-pattern>
+ 				<url-pattern>/js/*</url-pattern>
+ 				<url-pattern>/img/*</url-pattern>
+ 		</servlet-mapping>
+ 		<!--  Cls로 요청도록 정의된 서블릿 매핑 -->
+ 		<servlet-mapping>
+ 				<servlet-name>ClcDispatch</servlet-name>
+ 				<url-pattern>*.clc</url-pattern>
+ 		</servlet-mapping>
+ 		
+</web-app>

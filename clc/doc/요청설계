@@ -1,0 +1,129 @@
+------------------------------------------------------------
+# 메인 페이지 폼보기 요청
+요청내용 : /clc/main.clc
+파라미터 : 무
+컨트롤러 : com.luxurycity.clc.controller.Main
+뷰	  : /WEB-INF/views/com/luxurycity/clc/main.jsp
+------------------------------------------------------------
+# 마이페이지 폼보기 요청
+요청내용 : /clc/member/mypage.clc
+파라미터 : SID
+컨트롤러 : com.luxurycity.clc.controller.member.MyPage
+뷰	  : /WEB-INF/views/com/luxurycity/clc/member/MyPage.jsp
+------------------------------------------------------------
+# 마이페이지 즐겨찾기 삭제 요청
+요청내용 : /clc/member/bookdelproc.clc
+파라미터 : BOOkMARK(bmno), SID
+컨트롤러 : com.luxurycity.clc.controller.member.BookDelProc
+뷰	  : redirect] /clc/member/mypage.clc
+------------------------------------------------------------
+# 회원정보 페이지 폼 보기 요청
+요청내용 : /clc/member/myinfo.clc
+파라미터 : SID
+컨트롤러 : com.luxurycity.clc.controller.member.MyInfo
+뷰	  : /WEB-INF/views/com/luxurycity/clc/member/MyInfo.jsp
+------------------------------------------------------------
+# 마이페이지 개인정보 수정 요청
+요청내용 : /clc/member/myinfoedit.clc
+파라미터 : mail, ano
+컨트롤러 : com.luxurycity.clc.controller.member.MyInfoEdit
+뷰	  : redirect] /clc/member/mypage.clc
+------------------------------------------------------------
+# 마이페이지 개인정보 삭제 요청
+요청내용 : /clc/member/myinfodel.clc
+파라미터 : SID
+컨트롤러 : com.luxurycity.clc.controller.member.MyInfoDel
+뷰	  : redirect] /clc/member/mypage.clc
+------------------------------------------------------------
+# 즐겨찾기 버스검색 요청
+요청내용 : /clc/search/busdetail.clc
+파라미터 : ROUTE(route_id)
+컨트롤러 : com.luxurycity.clc.controller.search.BusDetail
+뷰	  : /WEB-INF/views/com/luxurycity/clc/search/BusDetail.jsp
+------------------------------------------------------------
+# 즐겨찾기 정류소검색 요청
+요청내용 : /clc/search/stationdetail.clc
+파라미터 : STATION(station_id)
+컨트롤러 : com.luxurycity.clc.controller.search.StationDetail
+뷰	  : /WEB-INF/views/com/luxurycity/clc/search/StationDetail.jsp
+------------------------------------------------------------
+# 즐겨찾기 추가 요청
+요청내용 : /clc/search/bookaddproc.clc
+파라미터 : 버스는 route_id 정류소 station_id
+컨트롤러 : com.luxurycity.clc.controller.search.BookAddproc
+뷰	  : /WEB-INF/views/com/luxurycity/clc/search/StationDetail.jsp
+------------------------------------------------------------
+# 게시판 폼 보기 요청
+요청내용 : /clc/board/board.clc
+파라미터 : [SID]
+컨트롤러 : com.luxurycity.clc.controller.board.Board
+뷰	  : /WEB-INF/views/com/luxurycity/clc/board/Board.jsp
+------------------------------------------------------------
+# 게시판 글 쓰기 요청
+요청내용 : /clc/board/writeproc.clc
+파라미터 : SID, BOARD(BODY)
+컨트롤러 : com.luxurycity.clc.controller.board.WriteProc
+뷰	  : redirect] /clc/board/board.clc
+------------------------------------------------------------
+# 게시판 글 수정 요청
+요청내용 : /clc/board/editproc.clc
+파라미터 : SID, BOARD(BNO,BODY)
+컨트롤러 : com.luxurycity.clc.controller.board.EditProc
+뷰	  : redirect] /clc/board/board.clc
+------------------------------------------------------------
+# 게시판 글 삭제 요청
+요청내용 : /clc/board/delproc.clc
+파라미터 : SID, BOARD(BNO)
+컨트롤러 : com.luxurycity.clc.controller.board.DelProc
+뷰	  : redirect] /clc/board/board.clc
+------------------------------------------------------------
+# 관련검색어 띄우기 요청 (비동기)
+요청내용 : /clc/search/relationlist.clc
+파라미터 : keyword
+컨트롤러 : com.luxurycity.clc.controller.search.RelationList
+뷰	  : ajax ]
+------------------------------------------------------------
+# 로그인 폼보기 요청
+요청내용 : /clc/member/login.clc
+파라미터 : 무
+컨트롤러 : com.luxurycity.clc.controller.member.Login
+뷰	  : /WEB-INF/views/com/luxurycity/clc/member/Login.jsp
+------------------------------------------------------------
+# 로그인 요청
+요청내용 : /clc/member/loginproc.clc
+파라미터 : id, pw 
+컨트롤러 : com.luxurycity.clc.controller.member.LoginProc
+뷰	  : redirect] /clc/main.clc
+				/clc/member/login.clc
+------------------------------------------------------------
+# 찾기 페이지 폼 보기 요청
+요청내용 : /clc/member/findpage.clc
+파라미터 : 아이디찾기 버튼인지 패스워드 버튼인지 알게해주는 거
+컨트롤러 : com.luxurycity.clc.controller.member.FindPage
+뷰	  : /WEB-INF/views/com/luxurycity/clc/member/FindPage.jsp
+------------------------------------------------------------
+# 아이디 찾기 요청
+요청내용 : /clc/member/findidpageproc.clc
+파라미터 : 페이지 폼에서 입력된것
+컨트롤러 : com.luxurycity.clc.controller.member.FindIdPageProc
+뷰	  : ajax]
+------------------------------------------------------------
+# 비밀번호 찾기 요청
+요청내용 : /clc/member/findpwpageproc.clc
+파라미터 : 페이지 폼에서 입력된것
+컨트롤러 : com.luxurycity.clc.controller.member.FindPwPageProc
+뷰	  : ajax]
+------------------------------------------------------------
+# 회원가입 폼 보기 요청
+요청내용 : /clc/member/join.clc
+파라미터 : 무
+컨트롤러 : com.luxurycity.clc.controller.member.Join
+뷰	  : /WEB-INF/views/com/luxurycity/clc/member/Join.jsp
+------------------------------------------------------------
+# 회원가입 처리 요청
+요청내용 : /clc/member/joinproc.clc
+파라미터 : 무
+컨트롤러 : com.luxurycity.clc.controller.member.JoinProc
+뷰	  : redirect] /clc/main.clc
+				/clc/join.clc
+------------------------------------------------------------

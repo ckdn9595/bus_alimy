@@ -1,0 +1,264 @@
+.mw500 {
+	max-width: 500px;
+}
+.mw550 {
+	max-width: 550px;
+}
+.mw600 {
+	max-width: 600px;
+}
+.mw650 {
+	max-width: 650px;
+}
+.mw700 {
+	max-width: 700px;
+}
+.mw750 {
+	max-width: 750px;
+}
+.mw800 {
+	max-width: 800px;
+}
+
+.mt5 {
+	margin-top: 5px;
+}
+
+.mt10 {
+	margin-top: 10px;
+}
+.mt25 {
+	margin-top: 25px;
+}
+.mt60 {
+	margin-top: 60px;
+}
+
+.mb0 {
+	margin-bottom: 0px;
+}
+
+.mb5 {
+	margin-bottom: 5px;
+}
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+.txt14 {
+	font-size: 14pt;
+}
+
+.txt16 {
+	font-size: 16pt;
+}
+
+.clsbold {
+	font-weight: bold;
+}
+
+.inblock {
+	display: inline-block;
+}
+
+.w200 {
+	width: 200px;
+}
+
+.h800 {
+	height: 800px;
+}
+.h500 {
+	height: 500px;
+}
+.h300 {
+	height: 300px;
+}
+.h100 {
+	height: 100px;
+}
+.h50 {
+	height: 50px;
+}
+.h35 {
+	height: 35px;
+}
+
+.mgnh10 {
+	margin: 5px 10px;
+}
+
+.pdr10 {
+	padding-right: 10px;
+}
+
+.pdl10 {
+	padding-left: 10px;
+}
+
+.pd10 {
+	padding: 10px;
+}
+
+.pdh70 {
+	padding: 0px 70px;
+}
+.pdh1 {
+	padding: 0px 1px;
+}
+
+.pdh3 {
+	padding: 0px 3px;
+}
+
+.pdh10 {
+	padding: 0px 5px;
+}
+.pdh50 {
+	padding: 0px 50px;
+}
+.pdw20 {
+	padding: 20px 0px;
+}
+.pdw80 {
+	padding: 80px 0px;
+}
+
+.clslbl {
+	font-size: 12pt;
+	color: gray;
+	line-height: 250%;
+}
+.txtloc{
+	line-height: 350%;
+}
+.txtloc2{
+	line-height: 250%;
+}
+
+
+.imgbox4 {
+	display:inline-block;
+	width: 450px;
+	height: 50px;
+	margin-top: 10px;
+}
+.imgbox3 {
+	display: block;
+	width: 450px;
+	height: 100px;
+	margin-top: 15px;
+}
+.imgbox2 {
+	display: inline-block;
+	width: 250px;
+	height: 250px;
+	margin-top: 15px;
+}
+.imgbox {
+	display: inline-block;
+	width: 105px;
+	height: 105px;
+	margin-top: 12px;
+}
+.imgsrc {
+	width: 100px;
+	height: 100px;
+}
+
+.mt0 {
+	margin-top: 0px!important;
+}
+
+.pdb10 {
+	padding-bottom: 10px;
+}
+
+.pd0 {
+	padding: 0px;
+}
+
+.w250 {
+	width: 250px;
+}
+
+.infoAvtBox {
+	width: 100%;
+	height: auto;
+}
+
+.ft18px {
+	font-size: 16pt;
+}
+
+.contBox {
+	width: 100%;
+	height: 250px;;
+}
+.ml {
+	margin-left: 60px;
+}
+.ml2 {
+	margin-left: 30px;
+}
+
+.mh3 {
+	margin: 3px 0px;
+}
+
+.mh5 {
+	margin: 5px 0px;
+}
+
+.mh10 {
+	margin: 10px 0px;
+}
+
+.btnBox {
+	height: 20px;
+	line-height: 30%;
+}
+
+.avtbox100 {
+	width: 110px;
+	height: 100px;
+}
+
+.avtimg100 {
+	width: 98px;
+	height: 98px;
+}
+
+.avtbox150 {
+	width: 160px;
+	height: 150px;
+}
+
+.avtimg150 {
+	width: 148px;
+	height: 148px;
+}
+
+.h70 {
+	height: 70px;
+}
+
+.h72 {
+	height: 72.5px;
+}
+
+.h90 {
+	height: 90px;
+}
+
+.pb10 {
+	padding-bottom: 10px;
+}
+
+.pb20 {
+	padding-bottom: 20px;
+}
+.bdrad{
+	border-radius:10%;
+}
