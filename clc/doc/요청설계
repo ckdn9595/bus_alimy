@@ -51,6 +51,7 @@
 요청내용 : /clc/search/bookaddproc.clc
 파라미터 : 버스는 route_id 정류소 station_id
 컨트롤러 : com.luxurycity.clc.controller.search.BookAddproc
+뷰	  : redirect] /clc/member/mypage.clc
 뷰	  : /WEB-INF/views/com/luxurycity/clc/search/StationDetail.jsp
 ------------------------------------------------------------
 # 게시판 폼 보기 요청
