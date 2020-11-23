@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <!-- (로그인, 회원가입 제외) 모든 페이지에 공통으로 적용될 탬플릿 -->
-<title>LuxuryCity Main</title>
+<title>탬플릿</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -69,6 +69,7 @@ a:visited {
     <a href="" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>  문의게시판</a>
     <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>  지도 검색</a>
+ <!-- 마이페이지는 로그인 했을 경우에만 뜨도록 한다 -->
 <c:if test="${not empty SID}">
     <div class="w3-dropdown-hover">
 	    <div class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>  마이페이지 <i class="fa fa-caret-down w3-right"></i></div>
@@ -139,10 +140,9 @@ a:visited {
   
   
   <hr>
-  
+
 	<!-- 이 영역에 데이터를 추가하면 됩니다 -->
 	<div class="w3-container">--- 추가 영역 ---</div>
-
 
   <hr>
   <div class="w3-container w3-dark-grey w3-padding-32">
