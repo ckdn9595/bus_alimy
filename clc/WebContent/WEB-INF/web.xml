@@ -14,13 +14,13 @@
 		<서블릿 정의>			
  -->	<servlet>
  				<servlet-name>resrc</servlet-name>
- 				<servlet-class>controller.Resrc</servlet-class>
+ 				<servlet-class>com.luxurycity.clc.controller.Resrc</servlet-class>
  		</servlet>
  		
 	<!--  .cls로 들어오는 모든 요청 서블릿 -->
 		<servlet>
  				<servlet-name>ClcDispatch</servlet-name>
- 				<servlet-class>dispatch.ClcDispatch</servlet-class>
+ 				<servlet-class>com.luxurycity.clc.dispatch.ClcDispatch</servlet-class>
  		</servlet>
  		
  		<!--  정의된 서블릿 매핑 -->
