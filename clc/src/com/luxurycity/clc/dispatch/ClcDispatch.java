@@ -19,7 +19,7 @@ public class ClcDispatch extends HttpServlet{
 		try {
 			String spath = this.getClass().getResource("").getPath();
 			
-			fin = new FileInputStream(spath + "../resources/ClcProperties.prop");
+			fin = new FileInputStream(spath + "../resources/ClcProperties.properties");
 			prop.load(fin);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -46,14 +46,13 @@ public class ClcDispatch extends HttpServlet{
 				
 				map.put(skey, clc);
 			}catch(Exception e) {}
-			System.out.println("dispatch list size ==" + list.size());
 		}
 		
 	}
 	public void service(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 		String full = req.getRequestURI();
-		// 2. full <== /jspcls/xxxxx/xxxx.cls
+
 		String realPath = full.substring(full.indexOf('/', 1));
 		
 		// 3. 요청 내용에 맞는 실제 실행할 클래스를 가져온다.
@@ -67,7 +66,7 @@ public class ClcDispatch extends HttpServlet{
 		 */
 		req.setAttribute("isRedirect", false);
 		String view = clc.exec(req, resp);
-		System.out.println(view + " ##############");
+
 		try {
 			bool = (Boolean) req.getAttribute("isRedirect");
 		} catch(Exception e) {}
@@ -80,7 +79,7 @@ public class ClcDispatch extends HttpServlet{
 			// 리다이렉트 시켜야 하는 경우
 			resp.sendRedirect(view);
 		} else if(!bool) {
-			String prefix = "/WEB-INF/views/";
+			String prefix = "/WEB-INF/views/com/luxurycity/clc";
 			String surffix = ".jsp";
 			RequestDispatcher rd = req.getRequestDispatcher( prefix + view + surffix);
 			rd.forward(req, resp);
