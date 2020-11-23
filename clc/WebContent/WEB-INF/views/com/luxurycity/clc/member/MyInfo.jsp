@@ -112,28 +112,28 @@ a:visited {
                         <div class="tdcell">
                             <div class="profile_photo">
                                 <img id="avt" src="" width="100" height="100">
-                                <span class="mask"></span>
                             </div>
                             <div class="btn_area_btm">
                                 <span class="btn_file">
-                                    <label for="inputImage" class="btn_model"><b id="btnChangeProfile" class="btn2">사진변경</b></label>
                                     <input type="file" id="inputImage" name="profileImage" class="w3-border">
+                                     <a href="" class="btn_model"><b id="editbtn" class="btn2 btn_disable">사진 변경</b></a>
                                 </span>
-                                
-                                <a href="javascript:;" class="btn_model"><b id="btnDelete" class="btn2 btn_disable">삭제</b></a>
                             </div>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <div class="thcell"><label for="inpNickname">email</label></div>
+                        <div class="thcell">email</div>
                     </th>
                     <td>
                         <div class="tdcell">
-                            <p class="contxt_webctrl nickname">
+                            <p class="contxt_webctrl w3-border"  style="width:254px">
+                                <span>사용자의 기존 이메일이 표시될 구역</span>
+                            </p>
+                            <p class="contxt_webctrl ">
                                 <input type="text" name="email" id="email" value="" placeholder="변경할 이메일 입력" style="width:254px">
-                                
+                         	     <a href="" class="btn_model"><b id="editbtn2" class="btn2 btn_disable">이메일 변경</b></a>
                             </p>
                         </div>
                     </td>

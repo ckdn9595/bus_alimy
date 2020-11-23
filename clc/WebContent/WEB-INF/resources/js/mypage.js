@@ -31,6 +31,8 @@ $(document).ready(function(){
 	});
 	$('#redelbtn').click(function(){
 		$('input').addClass('w3-hide');
+		$('#delbtn').removeClass('w3-hide');
+		$('#deletebtn').addClass('w3-hide');
 		$(this).addClass('w3-hide');
 	});
 	$('#deletebtn').click(function(){

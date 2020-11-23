@@ -294,7 +294,7 @@
     margin-left: 8px
 }
 .btn_model {
-    font-size: 12px;
+   
     line-height: 14px;
     display: inline-block;
 }
@@ -309,6 +309,7 @@
 .btn_model .btn2 {
     border: 1px solid #bfbfbf;
     background: #fff
+     font-size: 20px;
 }
 .btn_model .btn_disable {
     color: #8e8e8e

@@ -81,7 +81,7 @@ public class ClcDispatch extends HttpServlet{
 		} else if(!bool) {
 
 
-			String prefix = "/WEB-INF/views/com/luxurycity/clc";
+			String prefix = "/WEB-INF/views/com/luxurycity/clc/";
 			String surffix = ".jsp";
 			RequestDispatcher rd = req.getRequestDispatcher( prefix + view + surffix);
 			rd.forward(req, resp);
