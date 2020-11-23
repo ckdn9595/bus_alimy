@@ -10,7 +10,7 @@ public class Login implements ClcMain {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "member/login";
+		String view = "member/Login";
 		return view;
 	}
 

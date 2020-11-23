@@ -79,7 +79,9 @@ public class ClcDispatch extends HttpServlet{
 			// 리다이렉트 시켜야 하는 경우
 			resp.sendRedirect(view);
 		} else if(!bool) {
+
 			String prefix = "/WEB-INF/views/com/luxurycity/clc";
+
 			String surffix = ".jsp";
 			RequestDispatcher rd = req.getRequestDispatcher( prefix + view + surffix);
 			rd.forward(req, resp);
