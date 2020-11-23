@@ -265,3 +265,53 @@
 .bdrad{
 	border-radius:10%;
 }
+.tbl_model {
+    position: relative;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+    border: 1;
+}
+.tbl_model .thcell {
+    padding: 32px 31px 32px
+}
+.tbl_model .tdcell {
+    padding: 32px 0 32px 30px
+}
+.profile_photo {
+    position: relative;
+    width: 100px;
+    height: 100px
+}
+.tbl_model .btn_area_btm {
+    margin-left: -8px;
+    padding-top: 14px;
+    text-align: left
+}
+.btn_file {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px
+}
+.btn_model {
+    font-size: 12px;
+    line-height: 14px;
+    display: inline-block;
+}
+.tbl_model .contxt_webctrl {
+    font-size: 10;
+    line-height: 0;
+    position: relative;
+    margin-left: -8px;
+    padding: 13px 0 5px;
+    color: #666
+}
+.btn_model .btn2 {
+    border: 1px solid #bfbfbf;
+    background: #fff
+}
+.btn_model .btn_disable {
+    color: #8e8e8e
+}
+
+

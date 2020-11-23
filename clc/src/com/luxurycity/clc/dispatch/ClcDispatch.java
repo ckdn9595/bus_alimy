@@ -9,6 +9,7 @@ import com.luxurycity.clc.controller.ClcMain;
 import java.io.*;
 import java.util.*;
 
+@SuppressWarnings("serial")
 public class ClcDispatch extends HttpServlet{
 	public HashMap<String, ClcMain> map;
 	
@@ -23,7 +24,6 @@ public class ClcDispatch extends HttpServlet{
 			prop.load(fin);
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("clc init 실패..ㅜ");
 		}finally {
 			try {
 				fin.close();
@@ -80,8 +80,8 @@ public class ClcDispatch extends HttpServlet{
 			resp.sendRedirect(view);
 		} else if(!bool) {
 
-			String prefix = "/WEB-INF/views/com/luxurycity/clc";
 
+			String prefix = "/WEB-INF/views/com/luxurycity/clc";
 			String surffix = ".jsp";
 			RequestDispatcher rd = req.getRequestDispatcher( prefix + view + surffix);
 			rd.forward(req, resp);
