@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/clc/css/cls.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/clc/js/search/detail.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -124,13 +125,20 @@ a:visited {
   
   
   <hr>
+<!-- 데이터가 넘어가는 영역 -->
+<form method="post" id="frm">
+	<input type="hidden" name="routeid" id="routeid" value="">
+</form>
 
 	<!-- 이 영역에 데이터를 추가하면 됩니다 -->
 	<div class="w3-container w3-center w3-content">
 		<div class="mw800">
-			<div class="w3-co1 m1 w3-left w3-margin-right"><h5>버스번호 : </h5></div>
-			<div class="w3-col m3 w3-left" id="routeNm"><h5>&nbsp;5531</h5></div>
-			<div class="w3-col m3 w3-left"><h5>[서울, 안양]방향</h5></div>
+			<div class="w3-col m10">
+				<div class="w3-co1 m1 w3-left w3-margin-right"><h5>버스번호 : </h5></div>
+				<div class="w3-col m3 w3-left"><h5>&nbsp;5531</h5></div>
+				<div class="w3-col m3 w3-left"><h5>[서울, 안양]방향</h5></div>
+			</div>
+			<div class="w3-rest w3-left w3-btn btnword" id="add">추가</div>
 			<div class="w3-col">
 				<div class="w3-col m10">
 					<div class="w3-col m5 w3-left w3-btn w3-margin-left w3-margin-bottom w3-green btndi">정방향</div>

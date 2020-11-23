@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/clc/css/cls.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/clc/js/search/detail.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -52,8 +53,15 @@ a:visited {
 	background-color: white;
 	color: red;
 }
+.textgreen{
+	background-color: white;
+	color: green;
+}
 h6{
 	font-size: 10pt;
+}
+.title{
+	display: inline-block;
 }
 </style>
 <body class="w3-light-grey">
@@ -126,41 +134,47 @@ h6{
   
   
   <hr>
+<!-- 데이터가 넘어가는 영역 -->
+<form method="post" id="frm">
+	<input type="hidden" name="stationid" id="stationid" value="">
+</form>
 
 	<!-- 이 영역에 데이터를 추가하면 됩니다 -->
 	<div class="w3-container w3-center w3-content">
 		<div class="mw800">
-			<div class="w3-co1 m1 w3-left w3-margin-right"><h5>정류소 : </h5></div>
-			<div class="w3-col m3 w3-left" id="stationiNm"><h5>&nbsp;구로디지털단지역</h5></div>
-			<div class="w3-col"></div>
+			<div class="w3-col m10">
+				<div class="w3-co1 m1 w3-left w3-margin-right"><h5>정류소 : </h5></div>
+				<div class="w3-col m3 w3-left" id="stationiNm"><h5>&nbsp;구로디지털단지역</h5></div>
+			<div class="w3-right w3-btn btnword" id="add">추가</div>
+			</div>
 			
 			<div class="w3-col m10 w3-padding w3-border w3-left-align">
 				도착까지 5분 미만
 			</div>
 			<div class="w3-col m10 h50 textred w3-left-align">
-				<h6 style="display: inline-block;"><b>5,</b></h6>
-				<h6 style="display: inline-block;"><b>[구로]방향</b></h6>
+				<h6 class="title w3-text-red"><b>5,</b></h6>
+				<h6 class="title w3-text-red"><b>[구로]방향</b></h6>
 			</div>
 			<div class="w3-col m10 w3-padding w3-border w3-left-align">
 				도착까지 5분 이상
 			</div>
-			<div class="w3-col m10 h50 textred w3-left-align">
-				<h6 style="display: inline-block;"><b>500,</b></h6>
-				<h6 style="display: inline-block;"><b>[구로]방향</b></h6>
+			<div class="w3-col m10 h50 textgreen w3-left-align">
+				<h6 class="title w3-text-green"><b>500,</b></h6>
+				<h6 class="title w3-text-green"><b>[구로]방향</b></h6>
 			</div>
 			<div class="w3-col m10 w3-padding w3-border w3-left-align">
 				정류소 상세정보
 			</div>
 			<div class="w3-col m10 text w3-left-align">
-				<h6 class="w3-col m2 w3-left" style="display: inline-block;">관할지역 : </h6>
+				<h6 class="w3-col m2 w3-left title">관할지역 : </h6>
 				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 w3-left" style="display: inline-block;"><b>정류소이름 : </b></h6>
+				<h6 class="w3-col m2 w3-left title"><b>정류소이름 : </b></h6>
 				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 w3-left" style="display: inline-block;">정류소 고유번호 : </h6>
+				<h6 class="w3-col m2 w3-left title">정류소 고유번호 : </h6>
 				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 3-left" style="display: inline-block;">위도 : </h6>
+				<h6 class="w3-col m2 3-left title">위도 : </h6>
 				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 w3-left" style="display: inline-block;">경도 : </h6>
+				<h6 class="w3-col m2 w3-left title">경도 : </h6>
 				<h6 class="w3-col m9">&nbsp;value</h6>
 			</div>	
 		</div>
