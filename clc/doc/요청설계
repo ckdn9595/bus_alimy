@@ -114,6 +114,13 @@
 컨트롤러 : com.luxurycity.clc.controller.member.FindPwPageProc
 뷰	  : ajax]
 ------------------------------------------------------------
+# 비밀번호 변경 요청
+요청내용 : /clc/member/editpwproc.clc
+파라미터 : 비밀번호, 변경할 비밀번호
+컨트롤러 : com.luxurycity.clc.controller.member.EditProc
+뷰	  : redirect ] 성공 : /clc/main.clc
+				   실패 : /clc/member/login.clc
+------------------------------------------------------------
 # 회원가입 폼 보기 요청
 요청내용 : /clc/member/join.clc
 파라미터 : 무

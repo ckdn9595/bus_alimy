@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <!-- (로그인, 회원가입 제외) 모든 페이지에 공통으로 적용될 탬플릿 -->
-<title>LuxuryCity Main</title>
+<title>문의게시판</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -36,7 +36,7 @@ a:visited {
 <c:if test="${not empty SID}">
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/ysun/img/avatar/img_avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+      <img src="/clc/img/avatar/img_avatar1.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8">
       <span>Welcome, <strong>회원이름</strong></span><br>
@@ -67,8 +67,9 @@ a:visited {
   </div>
   <div class="w3-bar-block">
     <a href="" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="/clc/board/board.clc" class="w3-bar-item w3-button w3-padding"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>  문의게시판</a>
+    <a href="/clc/board/board.clc" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>  문의게시판</a>
     <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>  지도 검색</a>
+ <!-- 마이페이지는 로그인 했을 경우에만 뜨도록 한다 -->
 <c:if test="${not empty SID}">
     <div class="w3-dropdown-hover">
 	    <div class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>  마이페이지 <i class="fa fa-caret-down w3-right"></i></div>
@@ -139,10 +140,124 @@ a:visited {
   
   
   <hr>
-  
+	
+	<!-- 게시글 수정 창(모달창) -->
+	  <div id="id01" class="w3-modal">
+	    <div class="w3-modal-content w3-animate-top w3-card-4">
+	      <header class="w3-container w3-pink w3-center"> 
+	        <span onclick="document.getElementById('id01').style.display='none'" 
+	        class="w3-button w3-display-topright">&times;</span>
+	        <h2>Board Edit</h2>
+	      </header>
+	      <div class="w3-container">
+			<div class="w3-col w3-padding-large w3-white">
+				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
+				<textarea rows="4" cols="auto" placeholder="내용을 입력하세요!" class="w3-col m8 w3-input w3-border w3-round" style="resize: none;"></textarea>
+				<div class="w3-cell w3-col m2" style="padding-left: 20px; padding-top: 8px;">
+					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round">reset</div>
+					<div class="w3-col w3-button w3-blue-gray w3-round">edit</div>
+				</div>
+			</div>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  
 	<!-- 이 영역에 데이터를 추가하면 됩니다 -->
-	<div class="w3-container">--- 추가 영역 ---</div>
+	<div class="w3-container">
+	<!-- 문의 게시판 -->
+		<h5 class="w3-margin-bottom"><b><i class="fa fa-pencil"></i> 문의게시판</b></h5>
+		
+		<div class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 800px;">
+<c:if test="${empty SID}">		
+			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom">
+				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
+				<textarea rows="4" cols="auto" placeholder="로그인 후 이용하세요." class="w3-col m8 w3-input w3-border w3-round" style="resize: none;" disabled></textarea>
+				<div class="w3-cell w3-col m2" style="padding-left: 20px; padding-top: 8px;">
+					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round">reset</div>
+					<div class="w3-col w3-button w3-blue-gray w3-round">write</div>
+				</div>
+			</div>
+</c:if>
 
+<c:if test="${not empty SID}">
+			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom">
+				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
+				<textarea rows="4" cols="auto" placeholder="내용을 입력하세요!" class="w3-col m8 w3-input w3-border w3-round" style="resize: none;"></textarea>
+				<div class="w3-cell w3-col m2" style="padding-left: 20px; padding-top: 8px;">
+					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round">reset</div>
+					<div class="w3-col w3-button w3-blue-gray w3-round">write</div>
+				</div>
+			</div>
+</c:if>
+		<div class="w3-col w3-margin-bottom"><hr style="border-top: 1px solid lightgray;"></div>
+		
+		<!-- 게시글 반복해서 뿌려주기 -->
+			
+			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container">
+			<!-- 게시글 삭제 버튼 -->
+				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+				
+				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
+				<div class="w3-col m10">
+					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;">
+						<div class="w3-cell w3-left">dolphini0727</div>
+						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div>
+					</div>
+					<div class="w3-col w3-padding w3-left-align">글내용</div>
+			<!-- 게시글 수정 버튼 -->
+					<div class="w3-button w3-right w3-round" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div>
+					
+				</div>
+			</div>
+			
+			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container">
+			<!-- 게시글 삭제 버튼 -->
+				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+				
+				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
+				<div class="w3-col m10">
+					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;">
+						<div class="w3-cell w3-left">dolphini0727</div>
+						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div>
+					</div>
+					<div class="w3-col w3-padding w3-left-align">글내용</div>
+			<!-- 게시글 수정 버튼 -->
+					<div class="w3-button w3-right w3-round"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div>
+					
+				</div>
+			</div>
+			
+			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container">
+			<!-- 게시글 삭제 버튼 -->
+				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+				
+				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
+				<div class="w3-col m10">
+					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;">
+						<div class="w3-cell w3-left">dolphini0727</div>
+						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div>
+					</div>
+					<div class="w3-col w3-padding w3-left-align">글내용</div>
+			<!-- 게시글 수정 버튼 -->
+					<div class="w3-button w3-right w3-round"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="w3-bar w3-center">
+		  <a href="#" class="w3-button">&laquo;</a>
+		  <a href="#" class="w3-button">1</a>
+		  <a href="#" class="w3-button">2</a>
+		  <a href="#" class="w3-button">3</a>
+		  <a href="#" class="w3-button">4</a>
+		  <a href="#" class="w3-button">5</a>
+		  <a href="#" class="w3-button">&raquo;</a>
+		</div>
+	</div>
 
   <hr>
   <div class="w3-container w3-dark-grey w3-padding-32">
