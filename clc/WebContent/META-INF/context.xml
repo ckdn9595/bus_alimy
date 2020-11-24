@@ -12,4 +12,16 @@
 		driverClassName="oracle.jdbc.driver.OracleDriver"
 		url="jdbc:oracle:thin:@localhost:1521:orcl"
 	/>
+	<Resource
+		name="jdbc/BusDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxTotal="8"
+		maxIdle="2"
+		maxWaitMillis="10000"
+		username="alimi"
+		password="bus"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:orcl"
+	/>
 </Context>
