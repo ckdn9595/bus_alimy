@@ -19,6 +19,20 @@ public class BusDBInitSQL {
 			buff.append("    ?, ?, ?, ?, ?, ? ");
 			buff.append(") ");
 			break;
+		case INIT_ROUTE:
+			buff.append("INSERT INTO ");
+			buff.append("    route ");
+			buff.append("VALUES( ");
+			buff.append("    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ");
+			buff.append(") ");
+			break;
+		case INIT_ROUTESTATION:
+			buff.append("INSERT INTO ");
+			buff.append("    routestation ");
+			buff.append("VALUES( ");
+			buff.append("    (SELECT NVL(MAX(rsnum) + 1, 1) FROM routestation), ?, ?, ?, ? ");
+			buff.append(") ");
+			break;
 		}
 		return buff.toString();
 	}

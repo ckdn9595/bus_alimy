@@ -146,3 +146,15 @@ DB 데이터 집어넣기 처리
 컨트롤러 : com.luxurycity.clc.controller.dbinit.StationInputProc
 뷰	  : redirect ] /clc/main.clc
 ------------------------------------------------------------
+# 노선정보 데이터 집어넣기 처리 요청
+요청내용 : /clc/dbinit/routeInputProc.clc
+파라미터 : 무
+컨트롤러 : com.luxurycity.clc.controller.dbinit.RouteInputProc
+뷰	  : redirect ] /clc/main.clc
+------------------------------------------------------------
+# 노선경유정류소 정보 데이터 집어넣기 처리 요청
+요청내용 : /clc/dbinit/routeStationInputProc.clc
+파라미터 : 무
+컨트롤러 : com.luxurycity.clc.controller.dbinit.RouteStationInputProc
+뷰	  : redirect ] /clc/main.clc
+------------------------------------------------------------
