@@ -18,7 +18,7 @@ public class ClsDBCP {
 	public ClsDBCP() {
 		try {
 			InitialContext context = new InitialContext();
-			ds = (DataSource)context.lookup("java:/comp/env/jdbc/TestDB");
+			ds = (DataSource)context.lookup("java:/comp/env/jdbc/BusDB");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
