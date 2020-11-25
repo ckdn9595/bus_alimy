@@ -13,12 +13,60 @@
 <link rel="stylesheet" type="text/css" href="/clc/css/cls.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/clc/js/main.js"></script>
+<script>
+// 노선 상세피이지 이동 폼
+function busdetail(e) {
+	$('#routefrm').attr('action', ''); // 초기화
+
+	var i = 0;
+	var body = $(e).text();
+
+	$('#bsearch').val(body);	// 검색창에 옮기기.
+	
+	var arrbody = body.split('|');
+
+	var rouid = $(e).attr('id');
+	$('#routefrm').children().eq(i).val(rouid);
+	i++;
+	$.each(arrbody, function(index, item){
+		$('#routefrm').children().eq(i).val(item);
+		i++;
+	})
+	
+	$('#blist').css('display', 'none');
+	
+	$('#routefrm').attr('action', '/clc/search/routeproc.clc');;
+}
+
+// 정류소 상세페이지 이동 폼
+function stationdetail(ee) {
+	$('#stationfrm').attr('action', ''); // 초기화
+	
+	var body2 = $(ee).text();
+	
+	var arrbody2 = body2.split(',');
+	
+	$('#bssearch').val(body2);	// 검색창에 옮기기.
+
+	$('#stationid').val($(ee).attr('id'));	// 정류소 아이디 담기
+	
+	var j = 1;
+	
+	$.each(arrbody2, function(index, item){
+		$('#stationfrm').children().eq(j).val(item);
+		j++;
+	});
+	
+	$('#bslist').css('display', 'none');
+	
+	$('#stationfrm').attr('action', '/clc/search/stationproc.clc');
+}
+</script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
   text-decoration: none;
 }
-
 a:visited {
   text-decoration: none;
 }
@@ -27,7 +75,7 @@ a:visited {
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <a href="/clc/main.clc" class="w3-bar-item w3-right"><i class="fa fa-bus fa-fw" aria-hidden="true"></i>&nbsp;LuxuryCity</a>
 </div>
 
@@ -68,13 +116,13 @@ a:visited {
     <h5>Menu</h5>
   </div>
   <div class="w3-bar-block">
-    <a href="/clc/main.clc" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="/clc/board/board.clc" class="w3-bar-item w3-button w3-padding"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>  문의게시판</a>
-    <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>  지도 검색</a>
+    <a href="/clc/main.clc" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="/clc/board/board.clc" class="w3-bar-item w3-button w3-padding"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>  문의게시판</a>
+    <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>  지도 검색</a>
  <!-- 마이페이지는 로그인 했을 경우에만 뜨도록 한다 -->
 <c:if test="${not empty SID}">
     <div class="w3-dropdown-hover">
-	    <div class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>  마이페이지 <i class="fa fa-caret-down w3-right"></i></div>
+	    <div class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>  마이페이지 <i class="fa fa-caret-down w3-right"></i></div>
     	<div class="w3-dropdown-content w3-bar-block">
     		<a href="/clc/member/mypage.clc" class="w3-bar-item w3-button"><span class="w3-col m11 w3-right"><i class="fa fa-star fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;즐겨찾기</span></a>
     		<a href="/clc/member/myinfo.clc" class="w3-bar-item w3-button"><span class="w3-col m11 w3-right"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;회원정보</span></a>
@@ -103,22 +151,20 @@ a:visited {
 				<!-- 버스 검책창 -->
 					<div class="w3-col style5" id="bus">
 						<input type="text" placeholder="버스번호를 입력하세요." id="bsearch" name="search" class="style2">
-						<span class="w3-button w3-green style1" id="src">검색</span>
+						<span class="w3-button w3-green style1" id="srcroute">검색</span>
 					</div>
-					<div class="w3-card-2 buslist" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" id="blist">
-						<div class="w3-col w3-button w3-hover-gray" style="text-align: left; display: block;">버스를 입력해주세요</div>		
+					<div class="w3-card-2" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" id="blist">
+						<div class="w3-col w3-button w3-hover-gray buslist" style="text-align: left; display: block;">버스를 입력해주세요</div>		
 					</div>
 					
 					<!-- 정류소 검책창 -->
 					<div class="w3-col style5 w3-hide" id="busstop">
 						<input type="text" placeholder="정류소를 입력하세요." id="bssearch" name="search" class="style2">
-						<span class="w3-button w3-yellow style1" id="src">검색</span>
+						<span class="w3-button w3-yellow style1" id="srcstation">검색</span>
 					</div>
 					
-					<div class="w3-card-2 stalist" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" style="display:none" id="bslist">
-					
-						<div class="w3-col w3-button w3-hover-gray" style="text-align: left; display: block;">정류소를 입력해주세요</div>
-						
+					<div class="w3-card-2" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" style="display:none" id="bslist">
+						<div class="w3-col w3-button w3-hover-gray stalist" style="text-align: left; display: block;">정류소를 입력해주세요</div>	
 					</div>
 		
 				</form>
@@ -130,6 +176,24 @@ a:visited {
 			</div>
 		</div>
 	</div>
+	
+	<!-- 버스 데이터 전송 담당 태그 -->
+	<form method="post" id="routefrm">
+		<input type="hidden" name="routeid" id="routeid">
+		<input type="hidden" name="routenm" id="routenm">
+		<input type="hidden" name="routetype" id="routetype">
+		<input type="hidden" name="routestnm" id="routestnm">
+		<input type="hidden" name="routeednm" id="routeednm">
+	</form>
+	
+	<!-- 버스 데이터 전송 담당 태그 -->
+	<form method="post" id="stationfrm">
+		<input type="hidden" name="stationid" id="stationid">
+		<input type="hidden" name="stationnm" id="stationnm">
+		<input type="hidden" name="x" id="x">
+		<input type="hidden" name="y" id="y">
+		<input type="hidden" name="mobile" id="mobile">
+	</form>
 
   <hr>
   <div class="w3-container w3-dark-grey w3-padding-32">
@@ -164,10 +228,8 @@ a:visited {
 <script>
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
-
 // Get the DIV with overlay effect
 var overlayBg = document.getElementById("myOverlay");
-
 // Toggle between showing and hiding the sidebar, and add overlay effect
 function w3_open() {
   if (mySidebar.style.display === 'block') {
@@ -178,7 +240,6 @@ function w3_open() {
     overlayBg.style.display = "block";
   }
 }
-
 // Close the sidebar with the close button
 function w3_close() {
   mySidebar.style.display = "none";

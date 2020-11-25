@@ -14,64 +14,69 @@ $(document).ready(function(){
 	
 	$("#bsearch").focus(function(){
 		$('#blist').css('display', 'block');
+		$(this).val('');
 	});
 	var tmp = $('.buslist').html();
 	var tmp2 = tmp.substr(0,92);
 	var busoldVal = '';
-	$("#bsearch").on("change keyup paste", function() {
-	$('.buslist').html('');
-    var bus = $(this).val();
-    if(bus == busoldVal || bus == '') {
-        return;
-    }
- 	else{
-		 $.ajax({
-   		url: '/clc/search/relationlist.clc',
-   		type: 'POST',
-   		dataType: 'json',
-		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-   		data: {
-   			name: bus
-   		},
-   		success:function(data){
-//				var obj = JSON.parse(data);
+	
+	var autocomplete = $('.buslist');
+	
+	$("#bsearch").keyup(function() {
+	
+		$('.buslist').html('');
+	    var bus = $(this).val();
+
+	    if(bus == busoldVal || bus == '') {
+	        return;
+	    }
+	 	else{
+			$.ajax({
+	   		url: '/clc/search/relationlist.clc',
+	   		type: 'POST',
+	   		dataType: 'json',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+	   		data: {
+	   			name: bus
+	   		},
+	   		success:function(data){
+	
 				var searchList = data.searchList;
-//				var Count = obj.Count;
-				var tmp3 = "";
-				for(var i = 0 ; i < searchList.length; i++){
-					tmp3 += tmp2 + ' id='+ searchList[i].id+ '>' +searchList[i].name + ' | ' + searchList[i].type +
-					' | ' + ' 출발 : ' +searchList[i].stname +' | ' +' 종료 : ' +searchList[i].edname +'</div>';
-				}
-				$('.buslist').append(tmp3);
+	
+				$.each(searchList, function(index, item) {
+					var tmp = "번호: " +item.name+" | 노선유형: " + item.type+" | 기점 : "+item.stname+" | 종점 : "+item.edname;
+					$('<li class="w3-col w3-button w3-left-align" id="'+item.id+'" onclick="busdetail(this)"></li>').text(tmp).insertAfter(autocomplete);
+				});
+				
 			},
-   		error: function(){
-//				alert('### 통신 실패 ###');
+	  		error: function(){
+	//				alert('### 통신 실패 ###');
+			}
+	   
+			});
 		}
-   
-	});
-	}
-    busoldVal = bus;
+	    busoldVal = bus;
    
 	
 	});
 	
-	$('#bsearch').focusout(function() {
-		$('#blist').css('display', 'none');
-	});
 
 	$('#bssearch').focus(function() {
 		$('#bslist').css('display', 'block');
+		$(this).val('');
 	});
 	var staoldVal = '';
+	
+	var autocomplete2 = $('.stalist');
+	
 	$("#bssearch").on("change keyup paste", function() {
 		$('.stalist').html('');
-		
 	    var sta = $(this).val();
 	    if(sta == staoldVal || sta == '') {
 	        return;
 	    }
 	 	else{
-			 $.ajax({
+			$.ajax({
 	   		url: '/clc/search/starelationlist.clc',
 	   		type: 'POST',
 	   		dataType: 'json',
@@ -80,13 +85,14 @@ $(document).ready(function(){
 	   			name: sta
 	   		},
 	   		success:function(data){
-					var searchList = data.searchList;
-					var tmp3 = "";
-					for(var i = 0 ; i < searchList.length; i++){
-						tmp3 += tmp2 + ' id='+ searchList[i].id+ '>' +searchList[i].name +'</div>';
-					}
-					$('.stalist').append(tmp3);
-				},
+				var searchList = data.searchList;
+					
+				$.each(searchList, function(index, item) {
+					var tmp = item.name+", "+item.x+", "+item.y+", "+item.mobile+", "+item.region;
+					$('<li class="w3-col w3-button w3-left-align" id="'+item.id+'" onclick="stationdetail(this)"></li>').text(tmp).insertAfter(autocomplete2);
+				});
+				
+			},
 	   		error: function(){
 //					alert('### 통신 실패 ###');
 			}
@@ -98,11 +104,16 @@ $(document).ready(function(){
 	
 	});
 	
-	$('#bssearch').focusout(function() {
-		$('#bslist').css('display', 'none');
+	// 검색 이동
+	$('#srcroute').click(function() {
+		$('#routefrm').submit();
+	});
+	$('#srcstation').click(function() {
+		$('#stationfrm').submit();
 	});
 	
 	$('#login').click(function(){
 		$(location).attr('href','/clc/member/login.clc');
 	});
 });
+	
