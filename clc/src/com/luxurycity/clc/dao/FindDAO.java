@@ -41,6 +41,27 @@ public class FindDAO {
 		return id;
 	}
 	
+	public AvatarVO findAvt(String id) {
+		AvatarVO vo = new AvatarVO();
+		con = db.getCon();
+		String sql = fSQL.getSQL(fSQL.FIND_AVT);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			vo.setDir(rs.getString("dir"));
+			vo.setAfile(rs.getString("afile"));
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return vo;
+	}
+	
 	// 해당 메일의 아이디가 존재하는지 검사하는 작업 전담 처리 함수
 	public int idCount(String mail) {
 		int cnt = 0;

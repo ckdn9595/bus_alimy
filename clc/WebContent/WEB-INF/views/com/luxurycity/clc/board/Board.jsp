@@ -37,11 +37,11 @@ a:visited {
 <c:if test="${not empty SID}">
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/clc/img/avatar/img_avatar1.png" class="w3-circle w3-margin-right" style="width:46px">
+      <img src="/clc${AVT.dir}${AVT.afile}" class="w3-circle w3-card-4 w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8">
-      <span>Welcome, <strong>회원이름</strong></span><br>
-      <a href="#" class="w3-col m9 w3-tiny w3-round w3-button w3-orange w3-text-white" style="margin-top: 5px;">Logout</a>
+      <span>Welcome, <strong>${SID}</strong></span><br>
+      <a href="/clc/member/logout.clc" class="w3-col m9 w3-tiny w3-round w3-button w3-orange w3-text-white" style="margin-top: 5px;">Logout</a>
     </div>
   </div>
 </c:if>

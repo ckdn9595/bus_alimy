@@ -5,6 +5,7 @@ public class FindSQL {
 	public final int FIND_ID = 1002;
 	public final int SEL_QUEST_LIST = 1003;	
 	public final int FIND_PW = 1004;
+	public final int FIND_AVT = 1005;
 	
 	public final int EDIT_PW = 2001;
 	
@@ -45,6 +46,15 @@ public class FindSQL {
 			buff.append("    AND id = ? ");
 			buff.append("    AND qno = ? ");
 			buff.append("    AND answer = ? ");
+			break;
+		case FIND_AVT:
+			buff.append("select ");
+			buff.append("    dir, afile, id ");
+			buff.append("from ");
+			buff.append("    avatar a, member m ");
+			buff.append("where ");
+			buff.append("	a.ano = m.ano ");
+			buff.append("	and id = ? ");
 			break;
 		case EDIT_PW:
 			buff.append("UPDATE ");

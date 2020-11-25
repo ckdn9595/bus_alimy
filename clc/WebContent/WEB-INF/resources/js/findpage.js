@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	// 아이디 찾기 버튼을 클릭했을 경우
+	$('#logbtn').click(function(){
+		$(location).attr('href','/clc/member/login.clc');
+	});
 	$('#fIdbtn').click(function(){
 		var smail = $('#mail').val();
 		var pat = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;

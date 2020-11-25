@@ -81,6 +81,23 @@ $(document).ready(function(){
 			
 		};
 	});
+	$('#mail').keyup(function(){
+		
+		var mail = $(this).val();
+		
+		// 정규식 패턴 만들고
+		var pattern = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		// 검사하고
+		var result = pattern.test(mail);
+		// 결과로 처리하고
+		if(result){
+			$(this).removeClass('w3-pale-red');
+			$(this).addClass('w3-teal');
+		} else {
+			$(this).removeClass('w3-teal');
+			$(this).addClass('w3-pale-red');
+		}
+	});
 	
 	// 성별 선택시 아바타 보여주는 함수
 	$('#gen').change(function() {

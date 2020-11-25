@@ -26,20 +26,12 @@ public class Board implements ClcMain {
 		total = bDao.getCnt();
 		
 		PageUtil page = new PageUtil(nowPage, total);
-		
-				
-		// 테스트를 위해 임의로 SID를 부여한다.
-//		String sid = (String) req.getSession().getAttribute("SID");
-		String sid = "jjang";
-		req.getSession().setAttribute("SID", sid);
-		
-		System.out.println("SID : " + sid + " 가 삽입되었습니다.");
+		String sid = SessionUtil.procSession(req, resp);
 		ArrayList<BoardVO> list = bDao.getBoardList(page);		
 
 		
 		req.setAttribute("LIST", list);
 		req.setAttribute("PAGE", page);
-		req.setAttribute("SID", sid);
 		return view;
 	}
 
