@@ -42,7 +42,7 @@ a:visited {
     </div>
     <div class="w3-col s8">
       <span>Welcome, <strong>회원이름</strong></span><br>
-      <a href="#" class="w3-col m9 w3-tiny w3-round w3-button w3-orange w3-text-white" style="margin-top: 5px;">Logout</a>
+      <a href="/clc/member/logout.clc" class="w3-col m9 w3-tiny w3-round w3-button w3-orange w3-text-white" style="margin-top: 5px;">Logout</a>
     </div>
   </div>
 </c:if>

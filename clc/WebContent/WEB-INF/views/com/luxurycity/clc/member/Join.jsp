@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/clc/js/join.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -40,7 +40,7 @@ a:visited {
     <h2><b> JOIN </b></h2>
   </header>
 
-  <form method="POST" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;">
+  <form method="POST" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;" id="frm" name="frm">
   	<div class="w3-col w3-padding"><b>Your Id</b></div>
     <div class="w3-col"><input type="text" id="id" name="id" class="w3-input w3-border w3-round w3-padding-large" placeholder="Id"></div>
     
@@ -60,26 +60,33 @@ a:visited {
     <div class="w3-col">
     	<select id="gen" name="gen" class="w3-select w3-border w3-round w3-padding-large">
     		    <option value="" disabled selected>Choose</option>
-			    <option value="M">남자</option>
-			    <option value="F">여자</option>
+			    <option value="M" id="M">남자</option>
+			    <option value="W" id="W">여자</option>
     	</select>
     </div>
     
-  	<div class="w3-col w3-padding"><b>Avatar</b></div>
-  	
-  	<!-- 남자를 선택했을 경우 -->
+  	<div class="w3-col w3-padding" id="avttt" style="display: none;"><b>Avatar</b></div>
+  
   	<div class="w3-col w3-margin-bottom">
-  		<div class="w3-third w3-circle w3-padding w3-center"><img src="/clc/img/avatar/img_avatar1.png" class="w3-circle w3-card-4" width="100%" height="auto"><input class="w3-radio w3-tiny" type="radio" name="avatar" value="11" checked></div>
-  		<div class="w3-third w3-circle w3-padding w3-center"><img src="/clc/img/avatar/img_avatar2.png" class="w3-circle w3-card-4" width="100%" height="auto"><input class="w3-radio w3-small" type="radio" name="avatar" value="12"></div>
-  		<div class="w3-third w3-circle w3-padding w3-center"><img src="/clc/img/avatar/img_avatar3.png" class="w3-circle w3-card-4" width="100%" height="auto"><input class="w3-radio w3-small" type="radio" name="avatar" value="13"></div>
+  <c:forEach var="data" items="${LIST}">	
+  		<div class="w3-third w3-circle w3-padding w3-center gen${data.gen}" style="display: none;"><img src="/clc${data.dir}${data.afile}" class="w3-circle w3-card-4" width="100%" height="auto"><input class="w3-radio w3-tiny" type="radio" id="avatar" name="avatar" value="${data.ano}"></div>
+  </c:forEach>
   	</div>
-  	<!-- 여자를 선택했을 경우 -->
-  	<div class="w3-col w3-margin-bottom">
-  		<div class="w3-third w3-circle w3-padding w3-center"><img src="/clc/img/avatar/img_avatar4.png" class="w3-circle w3-card-4" width="100%" height="auto"><input class="w3-radio w3-small" type="radio" name="avatar" value="14" checked></div>
-  		<div class="w3-third w3-circle w3-padding w3-center"><img src="/clc/img/avatar/img_avatar5.png" class="w3-circle w3-card-4" width="100%" height="auto"><input class="w3-radio w3-small" type="radio" name="avatar" value="15"></div>
-  		<div class="w3-third w3-circle w3-padding w3-center"><img src="/clc/img/avatar/img_avatar6.png" class="w3-circle w3-card-4" width="100%" height="auto"><input class="w3-radio w3-small" type="radio" name="avatar" value="16"></div>
-  	</div>
-  	<div class="w3-col"><div class="w3-col w3-button w3-teal w3-round w3-margin-top w3-padding-large">JOIN</div></div>
+    
+  	<div class="w3-col w3-padding w3-margin-top"><b>Quetion</b></div>
+    <div class="w3-col">
+    	<select id="qt" name="qt" class="w3-select w3-border w3-round w3-padding-large">
+    		    <option value="" disabled selected>Choose</option>
+    		<c:forEach var="quetion" items="${QUE}">
+			    <option value="${quetion.qno}">${quetion.quest}</option>
+    		</c:forEach>
+    	</select>
+    </div>
+    	
+  	<div class="w3-col w3-padding"><b>Answer</b></div>
+    <div class="w3-col"><input type="text" id="ans" name="ans" class="w3-input w3-border w3-round w3-padding-large" placeholder="Answer"></div>
+  
+  	<div class="w3-col"><div class="w3-col w3-button w3-teal w3-round w3-margin-top w3-padding-large" id="submit">JOIN</div></div>
   	
 
   </form>

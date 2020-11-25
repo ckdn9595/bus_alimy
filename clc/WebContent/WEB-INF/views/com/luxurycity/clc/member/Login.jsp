@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/clc/js/login.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -40,7 +41,7 @@ a:visited {
     <h2><b> LOGIN </b></h2>
   </header>
 
-  <form method="POST" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;">
+  <form method="POST" action="/clc/member/loginProc.clc" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;" id="frm" name="frm">
   	<!-- 이 input tag에 아이디 찾기를 누르면 idCk를, 비번찾기를 누르면 pwCk를 value값으로 설정하고 보낸다. -->
   	<input type="hidden" name="findType" id="findType">
     <div class="w3-col"><input type="text" id="id" name="id" class="w3-input w3-border w3-round w3-padding-large" placeholder="UserId"></div>
