@@ -5,7 +5,7 @@ import java.util.*;
 import db.ClsDBCP;
 import java.sql.*;
 
-import com.luxurycity.clc.sql.MemberSQL;
+import com.luxurycity.clc.sql.*;
 import com.luxurycity.clc.vo.*;
 
 public class MemberDAO {
