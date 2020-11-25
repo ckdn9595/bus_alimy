@@ -16,7 +16,7 @@ public class PageUtil {
 	
 	public PageUtil() {}
 	public PageUtil(int nowPage, int totalCount) {
-		this(nowPage, totalCount, 3, 3);
+		this(nowPage, totalCount, 5, 5);
 	}
 	public PageUtil(int nowPage, int totalCount, int pageRow, int pageGroup) {
 		this.nowPage = nowPage;
