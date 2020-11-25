@@ -15,10 +15,13 @@ $(document).ready(function() {
 			alert('Please write your content.');
 			return;
 		}
-
+	
+		alert(body);
 		$('#body').val(body);
+		var test = $('#body').val();
+		alert(test);
 		$('#frm').attr('action', '/clc/board/writeproc.clc');
-//		$('#frm').submit();
+		$('#frm').submit();
 	});
 	
 	// delete 버튼
@@ -62,8 +65,8 @@ $(document).ready(function() {
 			page2 = page1;
 		}
 		
-		$('#nowPage').val(page);
+		$('#nowPage').val(page2);
 		$('#pfrm').attr('action', '/clc/board/board.clc');
-//		$('#pfrm').submit();
+		$('#pfrm').submit();
 	})
 });

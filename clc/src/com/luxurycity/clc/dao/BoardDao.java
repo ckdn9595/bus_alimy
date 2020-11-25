@@ -43,6 +43,7 @@ public class BoardDao {
 				BoardVO bVO = new BoardVO();
 				bVO.setAfile(rs.getNString("afile"));
 				bVO.setSid(rs.getNString("id"));
+				bVO.setBody(rs.getNString("body"));
 				bVO.setWdate(rs.getDate("wdate"));
 				bVO.setWtime(rs.getTime("wdate"));
 				bVO.setBno(rs.getInt("bno"));
@@ -73,6 +74,8 @@ public class BoardDao {
 		stmt = db.getSTMT(con);
 		
 		try {
+			rs = stmt.executeQuery(sql);
+			
 			rs.next();
 			
 			cnt = rs.getInt("cnt");
