@@ -194,7 +194,7 @@ a:visited {
 		<div class="w3-col w3-margin-bottom"><hr style="border-top: 1px solid lightgray;"></div>
 		
 		<!-- 게시글 반복해서 뿌려주기 -->
-<%-- 		<c:forEach var='LIST' items="${LIST}">	 --%>
+		<c:forEach var="LIST" items="${LIST}">	
 			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container">
 			<!-- 게시글 삭제 버튼 -->
 				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -202,11 +202,11 @@ a:visited {
 				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
 				<div class="w3-col m10">
 					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;">
-						<div class="w3-cell w3-left">dolphini0727</div>
-						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div>
+						<div class="w3-cell w3-left">${LIST.sid}</div>
+						<div class="w3-cell w3-right" style="margin-right: 20px;">${LIST.swdate}</div>
 					</div>
 			<!-- 아이디 수정하세요! -->		
-					<div class="w3-col w3-padding w3-left-align" id="bno1">글내용</div>
+					<div class="w3-col w3-padding w3-left-align" id="${LIST.bno}">${LIST.body}</div>
 			<!-- 삭제 & 수정 버튼은 해당 아이디 소유자만 보여야 한다. -->
 <%-- 			<c:if test="${SID eq LIST.sid}">		 --%>
 					<div class="w3-button w3-right w3-round" id="dbtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;delete</div>
@@ -215,7 +215,7 @@ a:visited {
 <%-- 			</c:if>		 --%>
 				</div>
 			</div>
-<%-- 		</c:forEach> --%>
+		</c:forEach>
 
 
 			<!-- 기능이 완성되면 삭제해주세요. -->
@@ -257,16 +257,16 @@ a:visited {
 		</div>
 		
 		<!-- 게시글 내용 전송하기 -->
-		<form method='post' id='frm'>
-			<input type='hidden' id='body', name='body'>
-			<input type='hidden' id='bno', name='bno'>
+		<form method="post" id="frm">
+			<input type="hidden" id="body" name="body">
+			<input type="hidden" id="bno" name="bno">
 		</form>
 		
 		<!-- 페이징 처리 -->
 		<div class="w3-bar w3-center">
 			<form method="post" name="pfrm" id="pfrm">
 				<input type="hidden" name="nowPage" id="nowPage">
-			  </form>
+			 </form>
 				
 		<!-- 이전버튼 -->
 	<c:if test="${PAGE.startPage != 1}">
@@ -277,9 +277,9 @@ a:visited {
 	</c:if>
 			
 			<!-- 기능이 완성되면 주석을 풀어주세요. -->
-<%--	<c:forEach var="page" begin="${PAGE.startPage}" end="${PAGE.endPage}"> --%>
-		  	<span class="w3-button pbtn">1</span>
-<%-- 	</c:forEach> --%>
+	<c:forEach var="page" begin="${PAGE.startPage}" end="${PAGE.endPage}">
+		  	<span class="w3-button pbtn">${page}</span>
+	</c:forEach>
 			
 		<!-- 다음버튼 -->
 	<c:if test="${PAGE.endPage == PAGE.totalPage}">

@@ -15,10 +15,11 @@ $(document).ready(function() {
 			alert('Please write your content.');
 			return;
 		}
+	
 
 		$('#body').val(body);
 		$('#frm').attr('action', '/clc/board/writeproc.clc');
-//		$('#frm').submit();
+		$('#frm').submit();
 	});
 	
 	// delete 버튼
@@ -31,9 +32,9 @@ $(document).ready(function() {
 			
 			var bno = $(this).prev().attr('id');
 
-			$('#bno').val(bno);
+		$('#bno').val(bno);
 		$('#frm').attr('action', '/clc/board/delproc.clc');
-//		$('#frm').submit();
+		$('#frm').submit();
 		} else {
 			alert('not delete');
 			return;
@@ -49,7 +50,7 @@ $(document).ready(function() {
 		$('#body').val(body);
 		$('#bno').val(bno);		
 		$('#frm').attr('action', '/clc/board/editproc.clc');
-//		$('#frm').submit();
+		$('#frm').submit();
 	});
 	
 	// 페이징 버튼
@@ -62,8 +63,8 @@ $(document).ready(function() {
 			page2 = page1;
 		}
 		
-		$('#nowPage').val(page);
+		$('#nowPage').val(page2);
 		$('#pfrm').attr('action', '/clc/board/board.clc');
-//		$('#pfrm').submit();
+		$('#pfrm').submit();
 	})
 });

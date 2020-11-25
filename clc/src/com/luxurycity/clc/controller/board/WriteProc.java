@@ -11,10 +11,17 @@ public class WriteProc implements ClcMain {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/clc/board/board.clc";
-		
+		System.out.println("실행됨?");
 		HttpSession session = req.getSession();
-		String sid = (String)session.getAttribute("SID");
-		String body = (String) req.getAttribute("body");
+		
+		String sid = "";
+		try {
+			sid = (String)session.getAttribute("SID");
+			
+		} catch(Exception e) {}
+		String body = (String) req.getParameter("body");
+		System.out.println("sid : " + sid + " 가 삽입되었습니다.");
+		System.out.println("body : " + body + " 가 삽입되었습니다.");
 		
 		BoardVO bVO = new BoardVO();
 		bVO.setSid(sid);
