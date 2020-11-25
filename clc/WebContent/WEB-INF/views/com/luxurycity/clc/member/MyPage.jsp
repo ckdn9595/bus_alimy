@@ -89,87 +89,60 @@ a:visited {
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-  <!-- Header -->
-  <!-- 필요할 것 같아 남겨둔 영역 -->
-<!--   <header class="w3-container" style="padding-top:22px"> -->
-<!--     <h5><b><i class="fa fa-dashboard"></i> Dashboard</b></h5> -->
-<!--   </header> -->
 
-<!--   <div class="w3-row-padding w3-margin-bottom"> -->
-<!--     <div class="w3-quarter"> -->
-<!--       <div class="w3-container w3-red w3-padding-16"> -->
-<!--         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div> -->
-<!--         <div class="w3-right"> -->
-<!--           <h3>52</h3> -->
-<!--         </div> -->
-<!--         <div class="w3-clear"></div> -->
-<!--         <h4>Messages</h4> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--     <div class="w3-quarter"> -->
-<!--       <div class="w3-container w3-blue w3-padding-16"> -->
-<!--         <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div> -->
-<!--         <div class="w3-right"> -->
-<!--           <h3>99</h3> -->
-<!--         </div> -->
-<!--         <div class="w3-clear"></div> -->
-<!--         <h4>Views</h4> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--     <div class="w3-quarter"> -->
-<!--       <div class="w3-container w3-teal w3-padding-16"> -->
-<!--         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div> -->
-<!--         <div class="w3-right"> -->
-<!--           <h3>23</h3> -->
-<!--         </div> -->
-<!--         <div class="w3-clear"></div> -->
-<!--         <h4>Shares</h4> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--     <div class="w3-quarter"> -->
-<!--       <div class="w3-container w3-orange w3-text-white w3-padding-16"> -->
-<!--         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div> -->
-<!--         <div class="w3-right"> -->
-<!--           <h3>50</h3> -->
-<!--         </div> -->
-<!--         <div class="w3-clear"></div> -->
-<!--         <h4>Users</h4> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
   
-  
-<!--   <hr> -->
-  
-	<!-- 이 영역에 데이터를 추가하면 됩니다 -->
-	<div class="w3-container w3-center w3-gray">--- 마이페이지 ---</div>
+	<hr>
 
 
   <hr>
-  <div class="w3-container w3-dark-grey w3-padding-32">
+  <form method="POST" id="frm" class="w3-container w3-padding-32">
+  	<h5 class="w3-margin-bottom"><b><i class="fa fa-star" aria-hidden="true"></i>  즐겨찾기</b></h5>
     <div class="w3-row">
       <div class="w3-container w3-half">
         <h5 class="w3-bottombar w3-border-green">버스</h5>
-<%--         <c:forEach data="data" items="${BUSLIST}"> --%>
-<%--   	      <p>${data. } ${data. }</p> --%>
-<%--         </c:forEach> --%>
-		<c:forEach begin="1" end="3" varStatus="st">
-       	 <input type="checkbox" name="delbus" id="delbus${st.count}" class="w3-hide tmp" value="delbus${st.count}"><p>${st.count}번째 버스</p>
-		</c:forEach>
-      
+
+<c:forEach var="blist" items="${BLIST}">
+		<div class="w3-col w3-card-4 w3-white w3-margin-bottom" id="${blist.bmno}">
+			<div class="w3-col w3-padding">
+				<div class="w3-col w3-border-bottom w3-border-blue w3-text-gray">${blist.route_tp}</div>
+				<div class="w3-col m10" style="padding-top: 5px;">
+					<div class="w3-col m4 w3-border-right w3-border-blue" style="font-size: 40px;">${blist.route_nm}</div>
+					<div class="w3-col m8 w3-padding">
+						<div class="w3-col w3-text-blue w3-small">${blist.ed_station_nm} 방면</div>
+				<c:if test="${blist.station_nm ne '0'}">
+						<div class="w3-col"><b>${blist.station_nm}</b></div>
+				</c:if>
+					</div>
+				</div>
+				<div class="w3-col m2 w3-display-container" style="height: 60px;"><input type="checkbox" class="w3-check w3-display-middle w3-hide ckbox" name="dellist" value="${blist.bmno}"></div>
+			</div>
+		</div>
+</c:forEach>
+		
       </div>
       
       <div class="w3-container w3-half">
         <h5 class="w3-bottombar w3-border-orange">정류소</h5>
-<%--         <c:forEach data="data" items="${STATIONLIST}"> --%>
-<%--   	      <p>${data. } ${data. }</p> --%>
-<%--         </c:forEach> --%>
-        <c:forEach begin="1" end="3" varStatus="st">
-       	 <input type="checkbox" name="delstation" id="delstation${st.count}" class="w3-hide tmp" value="delstation${st.count}"><p>${st.count}번째 정류소</p>
-		</c:forEach>
+
+<c:forEach var="slist" items="${SLIST}">        
+		<div class="w3-col w3-card-4 w3-white w3-margin-bottom" id="${slist.bmno}">
+			<div class="w3-col w3-padding">
+				<div class="w3-col w3-border-bottom w3-border-blue w3-text-gray">${slist.region}</div>
+				<div class="w3-col m10" style="padding-top: 5px;">
+					<div class="w3-col m4 w3-border-right w3-border-blue" style="font-size: 40px;">${slist.mobile_no}</div>
+					<div class="w3-col m8 w3-padding">
+						<div class="w3-col w3-small" style="visibility: hidden;"><b>　　　　　　</b></div>
+						<div class="w3-col"><b>${slist.station_nm}</b></div>
+					</div>
+				</div>
+				<div class="w3-col m2 w3-display-container" style="height: 60px;"><input type="checkbox" class="w3-check w3-display-middle w3-hide ckbox" name="dellist" value="${slist.bmno}"></div>
+			</div>
+		</div>
+</c:forEach>
+
       </div>
     </div>
-    <div class="w3-row-third">
+    <div class="w3-row-third w3-margin-top">
   			<div class="w3-container">
        			 <h5 class="w3-button w3-right w3-green" id="delbtn">삭제</h5>
        			 <h5 class="w3-button w3-right w3-green w3-hide" id="deletebtn">삭제</h5>
@@ -177,6 +150,29 @@ a:visited {
        		 </div>
     </div>
     
+  </form>
+  
+<hr>
+
+  <div class="w3-container w3-dark-grey w3-padding-32">
+    <div class="w3-row">
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-green">Region</h5>
+        <p>Seoul</p>
+        <p>Gyeonggi</p>
+        <p>Incheon</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-red">Information Provider</h5>
+        <p>TOPIS</p>
+        <p>Gbis</p>
+        <p>More</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-orange">Support</h5>
+        <p>Increpas</p>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -186,6 +182,29 @@ a:visited {
 
   <!-- End page content -->
 </div>
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
 
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
 </body>
 </html>
