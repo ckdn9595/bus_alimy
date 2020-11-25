@@ -25,13 +25,40 @@ public class SearchDAO {
 			
 			pstmt = db.getPSTMT(con, sql);
 			try {
-				pstmt.setString(1, Bus);
+				pstmt.setString(1, Bus+ "%");
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
 					RouteVO vo = new RouteVO();
 					vo.setRoute_nm(rs.getString("route_NM"));
 					vo.setRoute_cd(rs.getInt("route_cd"));
 					vo.setRoute_tp(rs.getString("route_tp"));
+					vo.setRoute_id(rs.getInt("route_id"));
+					vo.setSt_sta_nm(rs.getString("st_sta_nm"));
+					vo.setEd_sta_nm(rs.getString("ed_sta_nm"));
+					list.add(vo);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				db.close(rs);
+				db.close(pstmt);
+				db.close(con);
+			}
+			return list;
+		}
+		public ArrayList<StationVO> getstaCheck(String sta) {
+			ArrayList<StationVO> list = new ArrayList<StationVO>();
+			con = db.getCon();
+			String sql = sSQL.getSQL(sSQL.SEL_ST_LIST);
+			
+			pstmt = db.getPSTMT(con, sql);
+			try {
+				pstmt.setString(1, sta+ "%");
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					StationVO vo = new StationVO();
+					vo.setStation_id(rs.getInt("station_id"));
+					vo.setStation_nn(rs.getString("station_nm"));
 					list.add(vo);
 				}
 			}catch(Exception e) {

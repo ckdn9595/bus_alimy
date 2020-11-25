@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class RelationList implements ClcMain {
+public class StaRelationList implements ClcMain {
 
 	@Override
 
@@ -34,23 +34,17 @@ public class RelationList implements ClcMain {
 		StringBuffer buff = new StringBuffer();
 		
 		SearchDAO sDAO =new SearchDAO();
-		ArrayList<RouteVO> list = sDAO.getBusCheck(req.getParameter("name"));
+		ArrayList<StationVO> list = sDAO.getstaCheck(req.getParameter("name"));
 		
 
 		buff.append("{ \"searchList\":[");
 		for(int i = 0 ; i < list.size(); i++) {
 			if(i < list.size()-1) {
-				buff.append("{"+"\"name\":\""+list.get(i).getRoute_nm()+"\""+ ",");				
-				buff.append( "\"id\":\""+list.get(i).getRoute_id()+"\""+ ",");				
-				buff.append( "\"stname\":\""+list.get(i).getSt_sta_nm()+"\""+ ",");				
-				buff.append( "\"edname\":\""+list.get(i).getEd_sta_nm()+"\""+ ",");				
-				buff.append("\"type\":\""+list.get(i).getRoute_tp()+"\""+ "}"+ ",");								
+				buff.append("{"+"\"id\":\""+list.get(i).getStation_id()+"\""+ ",");						
+				buff.append("\"name\":\""+list.get(i).getStation_nn()+"\""+ "}"+ ",");								
 			}else {
-				buff.append("{"+"\"name\":\""+list.get(i).getRoute_nm()+"\""+ ",");				
-				buff.append( "\"id\":\""+list.get(i).getRoute_id()+"\""+ ",");				
-				buff.append( "\"stname\":\""+list.get(i).getSt_sta_nm()+"\""+ ",");				
-				buff.append( "\"edname\":\""+list.get(i).getEd_sta_nm()+"\""+ ",");				
-				buff.append("\"type\":\""+list.get(i).getRoute_tp()+"\""+ "}"+"],\"memberCount\":"+ list.size());														
+				buff.append("{"+"\"id\":\""+list.get(i).getStation_id()+"\""+ ",");							
+				buff.append("\"name\":\""+list.get(i).getStation_nn()+"\""+ "}"+"],\"memberCount\":"+ list.size());														
 			}
 		}
 		buff.append("}");
