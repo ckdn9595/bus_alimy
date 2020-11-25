@@ -12,7 +12,7 @@ public class BookDelProc implements ClcMain {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		req.setAttribute("isRedirect", true);
 		String view = "/clc/member/mypage.clc";
-		/*
+	
 		// 1. 세션에서 아이디값 얻어오고
 		String sid = (String)req.getSession().getAttribute("SID");
 		if(sid == null) {
@@ -20,7 +20,7 @@ public class BookDelProc implements ClcMain {
 			req.setAttribute("isRedirect", true);
 			return "/clc/member/login.clc";
 		}
-		*/
+		
 		// 2. 삭제할 즐겨찾기의 밸류 값들을 얻어오고
 		String[] values = req.getParameterValues("dellist");
 		

@@ -14,7 +14,7 @@ public class MyPage implements ClcMain {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "member/MyPage";
 		BookmarkDAO bDAO = new BookmarkDAO();
-		/*
+		
 		String sid = (String) req.getSession().getAttribute("SID");
 		
 		if(sid == null) {
@@ -22,8 +22,7 @@ public class MyPage implements ClcMain {
 			req.setAttribute("isRedirect", true);
 			return "/clc/member/login.clc";
 		}
-		*/
-		String sid = "sun";
+		
 		// 버스 데이터 담을 list 만들고 데이터 받고
 		ArrayList<BookmarkVO> bList = bDAO.getBusList(sid);
 		
