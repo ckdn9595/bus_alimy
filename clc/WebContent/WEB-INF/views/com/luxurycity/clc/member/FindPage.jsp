@@ -53,7 +53,7 @@ a:visited {
   	
     <!-- 찾기 버튼을 누르면 비동기 통신 처리를 통해 나타나는 영역 -->
     <div class="w3-col w3-margin-top w3-center w3-padding" id="fIdmsg" style="display: none;"></div>
-    
+    <div class="w3-col"><div class="w3-col w3-button w3-teal w3-round w3-margin-top w3-padding-large" id="logbtn">로그인창으로</div></div>
   </form>
 </c:if>
   
