@@ -308,11 +308,32 @@
 }
 .btn_model .btn2 {
     border: 1px solid #bfbfbf;
-    background: #fff
+    background: #fff;
      font-size: 20px;
 }
 .btn_model .btn_disable {
     color: #8e8e8e
 }
+.style1{
+	width: 14%;
+	height: 50px;
+	margin-bottom: 3px;
+}
+.style2{
+	display: inline-block; 
+	width: 85%; 
+	height: 50px;
+}
 
+.style4{
+	padding: 20px;
+	 margin-top: 50px; 
+	margin-bottom: 200px; 
+	border: 1px solid gray; 
+	border-radius: 20px;
+}
+.style5{
+	padding: 0px; 
+	margin: 0px;
+}
 

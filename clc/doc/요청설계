@@ -78,10 +78,16 @@
 컨트롤러 : com.luxurycity.clc.controller.board.DelProc
 뷰	  : redirect] /clc/board/board.clc
 ------------------------------------------------------------
-# 관련검색어 띄우기 요청 (비동기)
+# 관련검색어 띄우기 요청(버스) (비동기)
 요청내용 : /clc/search/relationlist.clc
 파라미터 : keyword
 컨트롤러 : com.luxurycity.clc.controller.search.RelationList
+뷰	  : ajax ]
+------------------------------------------------------------
+# 관련검색어 띄우기 요청(정류소) (비동기)
+요청내용 : /clc/search/starelationlist.clc
+파라미터 : keyword
+컨트롤러 : com.luxurycity.clc.controller.search.StaRelationList
 뷰	  : ajax ]
 ------------------------------------------------------------
 # 로그인 폼보기 요청

@@ -3,8 +3,8 @@ package com.luxurycity.clc.dao;
 import db.ClsDBCP;
 import java.sql.*;
 
-import com.luxurycity.clc.sql.MemberSQL;
-import com.luxurycity.clc.vo.MemberVO;
+import com.luxurycity.clc.sql.*;
+import com.luxurycity.clc.vo.*;
 
 public class MemberDAO {
 	ClsDBCP db;

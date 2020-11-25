@@ -2,7 +2,7 @@ package com.luxurycity.clc.vo;
 
 public class RouteVO {
 	private int route_id, route_cd, st_sta_id, ed_sta_id, peek_alloc, npeek_alloc, district_cd, station_id, str_order;
-	private String route_nm, up_first_time, up_last_time, down_first_time, down_last_time, region, station_nn, mobile_no, direction, route_tp;
+	private String route_nm, up_first_time, up_last_time, down_first_time, down_last_time, region, station_nn, mobile_no, direction, route_tp, st_sta_nm, ed_sta_nm;
 	public int getRoute_id() {
 		return route_id;
 	}
@@ -26,6 +26,19 @@ public class RouteVO {
 	}
 	public void setEd_sta_id(int ed_sta_id) {
 		this.ed_sta_id = ed_sta_id;
+	}
+	
+	public String getSt_sta_nm() {
+		return st_sta_nm;
+	}
+	public void setSt_sta_nm(String st_sta_nm) {
+		this.st_sta_nm = st_sta_nm;
+	}
+	public String getEd_sta_nm() {
+		return ed_sta_nm;
+	}
+	public void setEd_sta_nm(String ed_sta_nm) {
+		this.ed_sta_nm = ed_sta_nm;
 	}
 	public int getPeek_alloc() {
 		return peek_alloc;
