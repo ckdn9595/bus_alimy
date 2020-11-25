@@ -117,10 +117,9 @@
 ------------------------------------------------------------
 # 비밀번호 변경 요청
 요청내용 : /clc/member/editpwproc.clc
-파라미터 : 비밀번호, 변경할 비밀번호
+파라미터 : 비밀번호, 변경할 비밀번호, 아이디
 컨트롤러 : com.luxurycity.clc.controller.member.EditProc
-뷰	  : redirect ] 성공 : /clc/main.clc
-				   실패 : /clc/member/login.clc
+뷰	  : ajax ]
 ------------------------------------------------------------
 # 회원가입 폼 보기 요청
 요청내용 : /clc/member/join.clc

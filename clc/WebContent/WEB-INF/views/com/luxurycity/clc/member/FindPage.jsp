@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/clc/js/findpage.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -38,31 +39,33 @@ a:visited {
   <!-- 필요할 것 같아 남겨둔 영역 -->
   
   <!-- 1. 아이디 찾기를 할 경우 보여주는 부분 -->
+<c:if test="${TYPE eq 'idCk'}">
   <header class="w3-container w3-center" style="padding-top:22px; margin-top: 100px; margin-bottom: 30px;">
     <h2><b> 아이디 찾기 </b></h2>
   </header>
   
   <div class="w3-content w3-row-padding" style="max-width: 500px;">
-  	<div class="w3-col w3-padding">가입 시 등록한 이메일을 입력해주세요.</div>
+  	<div class="w3-col w3-padding"><b>가입 시 등록한 이메일을 입력해주세요.</b></div>
   </div>
-  <form method="POST" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;">
+  <form method="POST" id="fIdfrm" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;">
     <div class="w3-col"><input type="text" id="mail" name="mail" class="w3-input w3-border w3-round w3-padding-large" placeholder="Mail"></div>
-  	<div class="w3-col"><div class="w3-col w3-button w3-blue w3-round w3-margin-top w3-padding-large">찾기</div></div>
+  	<div class="w3-col"><div class="w3-col w3-button w3-blue w3-round w3-margin-top w3-padding-large" id="fIdbtn">찾기</div></div>
   	
     <!-- 찾기 버튼을 누르면 비동기 통신 처리를 통해 나타나는 영역 -->
-    <div class="w3-col w3-margin-top w3-center w3-padding"><span><b>홍길동</b></span>&nbsp;회원님의 아이디는 <span><b>hongildong</b></span> 입니다.</div>
-    <div class="w3-col w3-margin-top w3-center w3-padding">회원목록에 존재하지 않는 이메일입니다.</div>
+    <div class="w3-col w3-margin-top w3-center w3-padding" id="fIdmsg" style="display: none;"></div>
     
   </form>
+</c:if>
   
   
   <!-- 2. 비밀번호 찾기를 할 경우 보여주는 부분 -->
+<c:if test="${TYPE eq 'pwCk'}">
   <header class="w3-container w3-center" style="padding-top:22px; margin-top: 100px; margin-bottom: 30px;">
     <h2><b> 비밀번호 찾기 </b></h2>
   </header>
   
   <div class="w3-content w3-row-padding" style="max-width: 500px;">
-  	<div class="w3-col w3-padding">회원 아이디를 입력해주세요.</div>
+  	<div class="w3-col w3-padding"><b>회원 아이디를 입력해주세요.</b></div>
   </div>
   
   <form method="POST" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;">
@@ -71,39 +74,43 @@ a:visited {
   </form>
 
    <form method="POST" class="w3-content w3-row-padding w3-margin-bottom" style="max-width: 500px;">
-	 <div class="w3-col w3-padding"><b>당신의 보물 1호는? </b></div>
-	 <div class="w3-col"><input type="text"  name="" class="w3-input w3-border w3-round w3-padding-large" placeholder="정답"></div>
-	   
-	 <div class="w3-col w3-padding"><b>태어난 곳은? </b></div>
-	 <div class="w3-col"><input type="password" name="" class="w3-input w3-border w3-round w3-padding-large" placeholder="정답"></div>
-	   
-	 <div class="w3-col w3-padding"><b>당신의 인생 좌우명은? </b></div>
-	 <div class="w3-col"><input type="password" name="" class="w3-input w3-border w3-round w3-padding-large" placeholder="정답"></div>
-	 <div class="w3-col"><div class="w3-col w3-button w3-teal w3-round w3-margin-top w3-padding-large" onclick="document.getElementById('id01').style.display='block'">제출</div></div>
+	 <div class="w3-col w3-padding"><b>비밀번호 확인 질문</b></div>
+	 <div class="w3-col">
+    	<select id="quest" name="quest" class="w3-select w3-border w3-round w3-padding-large">
+    		    <option value="" disabled selected>Choose</option>
+			<c:forEach var="list" items='${LIST}'>
+			    <option value="${list.qno}" >${list.quest}</option>
+			</c:forEach>
+    	</select>
+     </div>
+	 <div class="w3-col w3-padding"><b>비밀번호 확인 답변</b></div>
+	 <div class="w3-col"><input type="text" id="answer" name="answer" class="w3-input w3-border w3-round w3-padding-large" placeholder="정답"></div>
+
+	 <div class="w3-col"><div class="w3-col w3-button w3-teal w3-round w3-margin-top w3-padding-large" id="fPwbtn">제출</div></div>
 	 
    </form>
    
    <!-- 제출 버튼을 누르면 비동기 통신 처리를 통해 나타나는 영역(모달창)-->
-  <div id="id01" class="w3-modal">
+  <div id="pwModal" class="w3-modal">
     <div class="w3-modal-content w3-animate-opacity w3-card-4">
       <header class="w3-container w3-teal"> 
-        <span onclick="document.getElementById('id01').style.display='none'" 
+        <span id="mclose" 
         class="w3-button w3-display-topright">&times;</span>
         <h2>비밀번호를 변경해주세요.</h2>
       </header>
-      <div class="w3-container">
+      <form method="POST" id="pwEditfrm" name="pwEditfrm" class="w3-container">
 		<div class="w3-col w3-padding"><b>New Password</b></div>
 	    <div class="w3-col"><input type="password" id="pw" name="pw" class="w3-input w3-border w3-round w3-padding-large" placeholder="Password"></div>
 	    
 	  	<div class="w3-col w3-padding"><b>New Password Confirm</b></div>
 	    <div class="w3-col w3-margin-bottom"><input type="password" id="pwconf" name="pwconf" class="w3-input w3-border w3-round w3-padding-large" placeholder="Password Check"></div>
-      </div>
+      </form>
       <footer class="w3-container w3-teal">
-          <div class="w3-col"><div class="w3-col w3-button w3-padding-large w3-hover-teal">변경하기</div></div>
+          <div class="w3-col"><div class="w3-col w3-button w3-padding-large w3-hover-teal" id="pwEditbtn">변경하기</div></div>
       </footer>
     </div>
   </div>
-  
+</c:if>  
   <hr>
 
 	<!-- 이 영역에 데이터를 추가하면 됩니다 -->
