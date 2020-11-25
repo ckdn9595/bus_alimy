@@ -3,7 +3,13 @@ package com.luxurycity.clc.sql;
 public class MemberSQL {
 	public final int MEM_ID_CK = 1001;
 	public final int MEM_LOGIN_CNT = 1002;
+	public final int MEM_AVT_INFO = 1003;
+	public final int MEM_QUE_INFO = 1004;
+	public final int MEM_GET_MNO = 1005;
+	public final int MEM_ID_CNT = 1006;
+	
 	public final int MEM_JOIN = 3001;
+	public final int MEM_JOIN_FIND = 3002;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -23,14 +29,52 @@ public class MemberSQL {
 			buff.append("    AND pw = ? ");
 			buff.append("    AND isshow = 'Y' ");
 			break;
-		case MEM_JOIN:
-			buff.append("INSERT INTO MEMBER ");
-			buff.append("MEMBER(MNO, ID, PW, EMAIL, P_QUE, P_ANS) ");
-			buff.append("VALUES( ");
-			buff.append("(SELECT NVL(MAX(MNO)+1, 1001) FROM MEMBER), ");
-			buff.append(" ?, ?, ?, ?, ?) ");
+		case MEM_AVT_INFO:
+			buff.append("SELECT ");
+			buff.append("    ano, afile, dir, gen ");
+			buff.append("FROM ");
+			buff.append("    avatar ");
 			break;
-			
+		case MEM_QUE_INFO:
+			buff.append("SELECT ");
+			buff.append("	qno, quest ");
+			buff.append("FROM ");
+			buff.append("	quest ");
+			buff.append("ORDER BY ");
+			buff.append("	qno ASC ");
+			break;
+		case MEM_GET_MNO:
+			buff.append("SELECT ");
+			buff.append("    mno ");
+			buff.append("FROM ");
+			buff.append("    member ");
+			buff.append("WHERE ");
+			buff.append("    id = ? ");
+			break;
+		case MEM_ID_CNT:
+			buff.append("SELECT ");
+			buff.append("	count(*) cnt ");
+			buff.append("FROM ");
+			buff.append("	member ");
+			buff.append("WHERE ");
+			buff.append("	id = ? ");
+			break;
+		case MEM_JOIN:
+			buff.append("INSERT INTO ");
+			buff.append("	member(mno, id, pw, name, mail, gen, ano) ");
+			buff.append("VALUES( ");
+			buff.append("	(SELECT NVL(MAX(mno) + 1, 1001) FROM member), ");
+			buff.append(" ?, ?, ?, ?, ?, ?) ");
+			break;
+		case MEM_JOIN_FIND:
+			buff.append("INSERT INTO ");
+			buff.append("    find(fno, mno, qno, answer) ");
+			buff.append("VALUES( ");
+			buff.append("    ( ");
+			buff.append("        SELECT NVL(MAX(fno) + 1, 1001) FROM find ");
+			buff.append("    ), ");
+			buff.append("    ?, ?, ?) ");
+			break;
 		}
 		return buff.toString();
 	}

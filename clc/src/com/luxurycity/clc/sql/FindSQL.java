@@ -8,6 +8,8 @@ public class FindSQL {
 	
 	public final int EDIT_PW = 2001;
 	
+	public final int JOIN_FIND = 3001;
+	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
 		switch(code) {
@@ -51,6 +53,15 @@ public class FindSQL {
 			buff.append("    pw = ? ");
 			buff.append("WHERE ");
 			buff.append("    id = ? ");
+			break;
+		case JOIN_FIND:
+			buff.append("INSERT INTO ");
+			buff.append("    find(fno, mno, qno, answer) ");
+			buff.append("VALUES( ");
+			buff.append("    ( ");
+			buff.append("        SELECT NVL(MAX(fno) + 1, 1001) FROM find ");
+			buff.append("    ), ");
+			buff.append("    ?, ?, ?) ");
 			break;
 		}
 		return buff.toString();

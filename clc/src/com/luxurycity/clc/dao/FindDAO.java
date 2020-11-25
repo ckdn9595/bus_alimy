@@ -136,4 +136,25 @@ public class FindDAO {
 		}
 		return cnt;
 	}
+	
+	// 회원가입 find 테이블 데이터 저장 전담 처리함수
+	public int addFind(FindVO fVO) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = fSQL.getSQL(fSQL.JOIN_FIND);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setInt(1, fVO.getMno());
+			pstmt.setInt(2, fVO.getQno());
+			pstmt.setString(3, fVO.getAnswer());
+			
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
 }
