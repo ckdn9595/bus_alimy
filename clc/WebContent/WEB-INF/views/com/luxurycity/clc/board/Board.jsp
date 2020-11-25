@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/clc/js/board/board.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -91,52 +92,52 @@ a:visited {
 
   <!-- Header -->
   <!-- 필요할 것 같아 남겨둔 영역 -->
-  <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Dashboard</b></h5>
-  </header>
+<!--   <header class="w3-container" style="padding-top:22px"> -->
+<!--     <h5><b><i class="fa fa-dashboard"></i> Dashboard</b></h5> -->
+<!--   </header> -->
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-quarter">
-      <div class="w3-container w3-red w3-padding-16">
-        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>52</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Messages</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>99</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Views</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>23</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Shares</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-orange w3-text-white w3-padding-16">
-        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>50</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Users</h4>
-      </div>
-    </div>
-  </div>
+<!--   <div class="w3-row-padding w3-margin-bottom"> -->
+<!--     <div class="w3-quarter"> -->
+<!--       <div class="w3-container w3-red w3-padding-16"> -->
+<!--         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div> -->
+<!--         <div class="w3-right"> -->
+<!--           <h3>52</h3> -->
+<!--         </div> -->
+<!--         <div class="w3-clear"></div> -->
+<!--         <h4>Messages</h4> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--     <div class="w3-quarter"> -->
+<!--       <div class="w3-container w3-blue w3-padding-16"> -->
+<!--         <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div> -->
+<!--         <div class="w3-right"> -->
+<!--           <h3>99</h3> -->
+<!--         </div> -->
+<!--         <div class="w3-clear"></div> -->
+<!--         <h4>Views</h4> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--     <div class="w3-quarter"> -->
+<!--       <div class="w3-container w3-teal w3-padding-16"> -->
+<!--         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div> -->
+<!--         <div class="w3-right"> -->
+<!--           <h3>23</h3> -->
+<!--         </div> -->
+<!--         <div class="w3-clear"></div> -->
+<!--         <h4>Shares</h4> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--     <div class="w3-quarter"> -->
+<!--       <div class="w3-container w3-orange w3-text-white w3-padding-16"> -->
+<!--         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div> -->
+<!--         <div class="w3-right"> -->
+<!--           <h3>50</h3> -->
+<!--         </div> -->
+<!--         <div class="w3-clear"></div> -->
+<!--         <h4>Users</h4> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
   
   
   <hr>
@@ -154,8 +155,8 @@ a:visited {
 				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
 				<textarea rows="4" cols="auto" placeholder="내용을 입력하세요!" class="w3-col m8 w3-input w3-border w3-round" style="resize: none;"></textarea>
 				<div class="w3-cell w3-col m2" style="padding-left: 20px; padding-top: 8px;">
-					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round">reset</div>
-					<div class="w3-col w3-button w3-blue-gray w3-round">edit</div>
+					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round rbtn">reset</div>
+					<div class="w3-col w3-button w3-blue-gray w3-round" id="ebtn">edit</div>
 				</div>
 			</div>
 	      </div>
@@ -174,8 +175,8 @@ a:visited {
 				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
 				<textarea rows="4" cols="auto" placeholder="로그인 후 이용하세요." class="w3-col m8 w3-input w3-border w3-round" style="resize: none;" disabled></textarea>
 				<div class="w3-cell w3-col m2" style="padding-left: 20px; padding-top: 8px;">
-					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round">reset</div>
-					<div class="w3-col w3-button w3-blue-gray w3-round">write</div>
+					<div class="w3-col w3-dark-gray w3-margin-bottom w3-round">reset</div>
+					<div class="w3-col w3-blue-gray w3-round">write</div>
 				</div>
 			</div>
 </c:if>
@@ -185,15 +186,15 @@ a:visited {
 				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
 				<textarea rows="4" cols="auto" placeholder="내용을 입력하세요!" class="w3-col m8 w3-input w3-border w3-round" style="resize: none;"></textarea>
 				<div class="w3-cell w3-col m2" style="padding-left: 20px; padding-top: 8px;">
-					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round">reset</div>
-					<div class="w3-col w3-button w3-blue-gray w3-round">write</div>
+					<div class="w3-col w3-button w3-dark-gray w3-margin-bottom w3-round rbtn">reset</div>
+					<div class="w3-col w3-button w3-blue-gray w3-round" id="wbtn">write</div>
 				</div>
 			</div>
 </c:if>
 		<div class="w3-col w3-margin-bottom"><hr style="border-top: 1px solid lightgray;"></div>
 		
 		<!-- 게시글 반복해서 뿌려주기 -->
-			
+		<c:forEach var="LIST" items="${LIST}">	
 			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container">
 			<!-- 게시글 삭제 버튼 -->
 				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -201,62 +202,94 @@ a:visited {
 				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
 				<div class="w3-col m10">
 					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;">
-						<div class="w3-cell w3-left">dolphini0727</div>
-						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div>
+						<div class="w3-cell w3-left">${LIST.sid}</div>
+						<div class="w3-cell w3-right" style="margin-right: 20px;">${LIST.swdate}</div>
 					</div>
-					<div class="w3-col w3-padding w3-left-align">글내용</div>
+			<!-- 아이디 수정하세요! -->		
+					<div class="w3-col w3-padding w3-left-align" id="${LIST.bno}">${LIST.body}</div>
+			<!-- 삭제 & 수정 버튼은 해당 아이디 소유자만 보여야 한다. -->
+<%-- 			<c:if test="${SID eq LIST.sid}">		 --%>
+					<div class="w3-button w3-right w3-round" id="dbtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;delete</div>
 			<!-- 게시글 수정 버튼 -->
-					<div class="w3-button w3-right w3-round" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div>
-					
+					<div class="w3-button w3-right w3-round" onclick="document.getElementById('id01').style.display='block'" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div>
+<%-- 			</c:if>		 --%>
 				</div>
 			</div>
-			
-			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container">
-			<!-- 게시글 삭제 버튼 -->
-				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+		</c:forEach>
+
+
+			<!-- 기능이 완성되면 삭제해주세요. -->
+<!-- 			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container"> -->
+<!-- 			<!-- 게시글 삭제 버튼 -->
+<!-- 				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div> -->
 				
-				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
-				<div class="w3-col m10">
-					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;">
-						<div class="w3-cell w3-left">dolphini0727</div>
-						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div>
-					</div>
-					<div class="w3-col w3-padding w3-left-align">글내용</div>
-			<!-- 게시글 수정 버튼 -->
-					<div class="w3-button w3-right w3-round"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div>
+<!-- 				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div> -->
+<!-- 				<div class="w3-col m10"> -->
+<!-- 					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;"> -->
+<!-- 						<div class="w3-cell w3-left">dolphini0727</div> -->
+<!-- 						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="w3-col w3-padding w3-left-align">글내용</div> -->
+<!-- 			<!-- 게시글 수정 버튼 -->
+<!-- 					<div class="w3-button w3-right w3-round"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div> -->
 					
-				</div>
-			</div>
+<!-- 				</div> -->
+<!-- 			</div> -->
 			
-			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container">
-			<!-- 게시글 삭제 버튼 -->
-				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+<!-- 			<div class="w3-col w3-padding-large w3-card-2 w3-white w3-margin-bottom w3-display-container"> -->
+<!-- 			<!-- 게시글 삭제 버튼 -->
+<!-- 				<div class="w3-display-topright w3-button w3-small w3-text-red"><i class="fa fa-times" aria-hidden="true"></i></div> -->
 				
-				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div>
-				<div class="w3-col m10">
-					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;">
-						<div class="w3-cell w3-left">dolphini0727</div>
-						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div>
-					</div>
-					<div class="w3-col w3-padding w3-left-align">글내용</div>
-			<!-- 게시글 수정 버튼 -->
-					<div class="w3-button w3-right w3-round"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div>
+<!-- 				<div class="w3-col m2"><img src="/clc/img/avatar/img_avatar1.png" class="w3-round" width="110px;" height="auto"></div> -->
+<!-- 				<div class="w3-col m10"> -->
+<!-- 					<div class="w3-col w3-border-bottom w3-left w3-text-grey" style="padding-left: 16px; padding-bottom: 3px;"> -->
+<!-- 						<div class="w3-cell w3-left">dolphini0727</div> -->
+<!-- 						<div class="w3-cell w3-right" style="margin-right: 20px;">2020/11/23 14:14</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="w3-col w3-padding w3-left-align">글내용</div> -->
+<!-- 			<!-- 게시글 수정 버튼 -->
+<!-- 					<div class="w3-button w3-right w3-round"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;edit</div> -->
 					
-				</div>
-			</div>
+<!-- 				</div> -->
+<!-- 			</div> -->
 			
 			
 		</div>
 		
+		<!-- 게시글 내용 전송하기 -->
+		<form method="post" id="frm">
+			<input type="hidden" id="body" name="body">
+			<input type="hidden" id="bno" name="bno">
+		</form>
+		
+		<!-- 페이징 처리 -->
 		<div class="w3-bar w3-center">
-		  <a href="#" class="w3-button">&laquo;</a>
-		  <a href="#" class="w3-button">1</a>
-		  <a href="#" class="w3-button">2</a>
-		  <a href="#" class="w3-button">3</a>
-		  <a href="#" class="w3-button">4</a>
-		  <a href="#" class="w3-button">5</a>
-		  <a href="#" class="w3-button">&raquo;</a>
+			<form method="post" name="pfrm" id="pfrm">
+				<input type="hidden" name="nowPage" id="nowPage">
+			 </form>
+				
+		<!-- 이전버튼 -->
+	<c:if test="${PAGE.startPage != 1}">
+			<span class="w3-button pbtn" id="${PAGE.startPage-1}">&laquo;</span>
+	</c:if>	
+	<c:if test="${PAGE.startPage == 1}">
+			<span class="pbtn" id="${PAGE.startPage-1}">&laquo;</span>
+	</c:if>
+			
+			<!-- 기능이 완성되면 주석을 풀어주세요. -->
+	<c:forEach var="page" begin="${PAGE.startPage}" end="${PAGE.endPage}">
+		  	<span class="w3-button pbtn">${page}</span>
+	</c:forEach>
+			
+		<!-- 다음버튼 -->
+	<c:if test="${PAGE.endPage == PAGE.totalPage}">
+		 	<span class="pbtn" id="${PAGE.endPage+1}">&raquo;</span>
+	 </c:if> 
+	<c:if test="${PAGE.endPage != PAGE.totalPage}">
+		 	<span class="w3-button pbtn" id="${PAGE.endPage+1}">&raquo;</span>
+	 </c:if> 
 		</div>
+		
 	</div>
 
   <hr>
