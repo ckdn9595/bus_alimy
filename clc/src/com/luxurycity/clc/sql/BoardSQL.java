@@ -50,6 +50,7 @@ public class BoardSQL {
 			builder.append("	WHERE ");
 			builder.append("		a.ano = m.ano ");
 			builder.append("		AND m.mno = b.mno ");
+			builder.append("		AND b.isshow = 'Y' ");
 			builder.append("	ORDER BY ");
 			builder.append("		bno DESC) ");
 			builder.append("WHERE ");
@@ -60,6 +61,8 @@ public class BoardSQL {
 			builder.append("	COUNT(*) cnt ");
 			builder.append("FROM ");
 			builder.append("	board ");
+			builder.append("WHERE ");
+			builder.append("	isshow = 'Y' ");
 			break;
 		}
 		return builder.toString();

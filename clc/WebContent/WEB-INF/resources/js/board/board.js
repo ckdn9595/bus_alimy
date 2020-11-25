@@ -16,10 +16,8 @@ $(document).ready(function() {
 			return;
 		}
 	
-		alert(body);
+
 		$('#body').val(body);
-		var test = $('#body').val();
-		alert(test);
 		$('#frm').attr('action', '/clc/board/writeproc.clc');
 		$('#frm').submit();
 	});
@@ -34,9 +32,9 @@ $(document).ready(function() {
 			
 			var bno = $(this).prev().attr('id');
 
-			$('#bno').val(bno);
+		$('#bno').val(bno);
 		$('#frm').attr('action', '/clc/board/delproc.clc');
-//		$('#frm').submit();
+		$('#frm').submit();
 		} else {
 			alert('not delete');
 			return;
@@ -52,7 +50,7 @@ $(document).ready(function() {
 		$('#body').val(body);
 		$('#bno').val(bno);		
 		$('#frm').attr('action', '/clc/board/editproc.clc');
-//		$('#frm').submit();
+		$('#frm').submit();
 	});
 	
 	// 페이징 버튼

@@ -11,7 +11,7 @@ public class DelProc implements ClcMain {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/clc/board/board.clc";
 		
-		String sno = (String) req.getAttribute("bno");
+		String sno = (String) req.getParameter("bno");
 		int bno = 0;
 		try {
 			bno = Integer.parseInt(sno);
