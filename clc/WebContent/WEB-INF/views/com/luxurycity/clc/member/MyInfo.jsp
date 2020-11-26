@@ -91,13 +91,21 @@ a:visited {
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
+  <!-- 회원정보 삭제 -->
+  <form method="POST" action="/clc/member/myinfodel.clc" id="dfrm" name="dfrm" style="width: 700px;">
+  <h5 class="w3-col w3-padding" id="avttt"><b>계정 삭제</b></h5>
+  <div class="w3-col" style="margin-left: 100px;">
+	  <input type="password" id="pw" name="pw" class="w3-input w3-border w3-round" placeholder="비밀번호를 입력하세요." style="width: 500px; margin: 0px;">
+	  <div class="w3-button w3-round w3-black" id="delbtn">삭제</div>
+  </div>
+  </form>
   <!-- 필요할 것 같아 남겨둔 영역 -->
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> 프로필 수정</b></h5>
   </header>
 
   <hr>
-
+<form method="POST" action="/clc/member/myinfoedit.clc" id="frm" name="frm">
 	<table border="1" class="tbl_model">
                 
                 <colgroup>
@@ -111,7 +119,7 @@ a:visited {
                     <td>
                         <div class="tdcell">
                             <div class="profile_photo">
-                                <img id="avt" src="" width="100" height="100">
+                                <img id="avt" src="/clc/${DATA.name}${DATA.afile}" width="100" height="100">
                             </div>
                             <div class="btn_area_btm">
                                 <span class="btn_file">
@@ -129,17 +137,18 @@ a:visited {
                     <td>
                         <div class="tdcell">
                             <p class="contxt_webctrl w3-border"  style="width:254px">
-                                <span>사용자의 기존 이메일이 표시될 구역</span>
+                                <span>${DATA.mail}</span>
                             </p>
                             <p class="contxt_webctrl ">
                                 <input type="text" name="email" id="email" value="" placeholder="변경할 이메일 입력" style="width:254px">
-                         	     <a href="" class="btn_model"><b id="editbtn2" class="btn2 btn_disable">이메일 변경</b></a>
+                         	     <a class="btn_model" style="cursor: hand"><b id="editbtn2" class="btn2 btn_disable">이메일 변경</b></a>
                             </p>
                         </div>
                     </td>
                 </tr>
                 </tbody>
             </table>
+</form>
 
   
 
