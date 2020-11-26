@@ -163,7 +163,7 @@ a:visited {
 						<span class="w3-button w3-yellow style1" id="srcstation">검색</span>
 					</div>
 					
-					<div class="w3-card-2" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" style="display:none" id="bslist">
+					<div class="w3-card-2 stareset" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" style="display:none" id="bslist">
 						<div class="w3-col w3-button w3-hover-gray stalist" style="text-align: left; display: block;">정류소를 입력해주세요</div>	
 					</div>
 		
