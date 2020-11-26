@@ -74,4 +74,44 @@ public class SearchDAO {
 			}
 			return list;
 		}
+		
+		// 버스 노선 상세정보 처리 전담 함수
+		public ArrayList<RouteVO> getRouteDetail(int route_id) {
+			ArrayList<RouteVO> list = new ArrayList<RouteVO>();
+			
+			con = db.getCon();
+			
+			String sql = sSQL.getSQL(sSQL.SEL_BUS_DETAIL);
+			
+			pstmt = db.getPSTMT(con, sql);
+			
+			try {
+				pstmt.setInt(1, route_id);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					RouteVO rVO = new RouteVO();
+					rVO.setDirection(rs.getNString("direction"));
+					rVO.setRegion(rs.getNString("region"));
+					rVO.setStation_nn(rs.getString("station_nm"));
+					rVO.setMobile_no(rs.getNString("mobile_no"));
+					rVO.setStr_order(rs.getInt("str_order"));
+					rVO.setPeek_alloc(rs.getInt("peek"));
+					rVO.setNpeek_alloc(rs.getInt("npeek"));
+					
+					list.add(rVO);
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("SearchDao.getRouteDetail에서 질의명령 전달 실패.");
+			} finally {
+				db.close(rs);
+				db.close(pstmt);
+				db.close(con);
+			}
+			
+			return list;
+		}
 }
