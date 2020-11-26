@@ -2,7 +2,26 @@ package com.luxurycity.clc.vo;
 
 public class BookmarkVO {
 	private int bmno, mno, route_id, station_id, route_cd, bdistrict_cd, sdistrict_cd;
-	private String sid, station_nn, mobile_no, route_nm;
+	private String sid, station_nm, mobile_no, route_nm, ed_station_nm, region, route_tp;
+	
+	public String getRoute_tp() {
+		return route_tp;
+	}
+	public void setRoute_tp(String route_tp) {
+		this.route_tp = route_tp;
+	}
+	public String getRegion() {
+		return region;
+	}
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	public String getEd_station_nm() {
+		return ed_station_nm;
+	}
+	public void setEd_station_nm(String ed_station_nm) {
+		this.ed_station_nm = ed_station_nm;
+	}
 	public int getBmno() {
 		return bmno;
 	}
@@ -51,11 +70,11 @@ public class BookmarkVO {
 	public void setSid(String sid) {
 		this.sid = sid;
 	}
-	public String getStation_nn() {
-		return station_nn;
+	public String getStation_nm() {
+		return station_nm;
 	}
-	public void setStation_nn(String station_nn) {
-		this.station_nn = station_nn;
+	public void setStation_nm(String station_nm) {
+		this.station_nm = station_nm;
 	}
 	public String getMobile_no() {
 		return mobile_no;

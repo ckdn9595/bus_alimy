@@ -100,13 +100,17 @@ a:visited {
   </div>
   </form>
   <!-- 필요할 것 같아 남겨둔 영역 -->
+  <!-- 
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> 프로필 수정</b></h5>
+
   </header>
+   -->
 
   <hr>
+
 <form method="POST" action="/clc/member/myinfoedit.clc" id="frm" name="frm">
 	<table border="1" class="tbl_model">
+
                 
                 <colgroup>
                     <col style="width:22%"><col>
@@ -147,11 +151,38 @@ a:visited {
                     </td>
                 </tr>
                 </tbody>
+
             </table>
 </form>
 
-  
+  <div class="w3-container w3-padding-32">
+  	    <h5><b><i class="fa fa-user"></i>  회원 정보</b></h5>
+  	    <div class="w3-content w3-padding w3-card-2 w3-white">
+  	    	
+  	    </div>
+  </div>
 
+	<hr>
+  <div class="w3-container w3-dark-grey w3-padding-32">
+    <div class="w3-row">
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-green">Region</h5>
+        <p>Seoul</p>
+        <p>Gyeonggi</p>
+        <p>Incheon</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-red">Information Provider</h5>
+        <p>TOPIS</p>
+        <p>Gbis</p>
+        <p>More</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-orange">Support</h5>
+        <p>Increpas</p>
+      </div>
+    </div>
+  </div>
   <!-- Footer -->
   <footer class="w3-container w3-padding-16 w3-light-grey">
     <p>Developed by <b>Silicon Valley</b></p>

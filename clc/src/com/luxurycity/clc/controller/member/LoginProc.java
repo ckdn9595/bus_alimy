@@ -14,11 +14,11 @@ public class LoginProc implements ClcMain {
 		
 		String sid = req.getParameter("id");
 		String spw = req.getParameter("pw");
-		System.out.println(sid);
-		System.out.println(spw);
+//		System.out.println(sid);
+//		System.out.println(spw);
 		MemberDAO mDao = new MemberDAO();
 		int cnt = mDao.getLoginCnt(sid, spw);
-		System.out.println(cnt);
+//		System.out.println(cnt);
 		if(cnt != 1) {
 			view = "/clc/member/login.clc";
 		} else {

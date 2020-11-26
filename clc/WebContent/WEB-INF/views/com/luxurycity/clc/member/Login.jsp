@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/clc/js/login.js"></script>
+<script type="text/javascript" src="/clc/js/Login.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -47,16 +47,16 @@ a:visited {
     <div class="w3-col"><input type="text" id="id" name="id" class="w3-input w3-border w3-round w3-padding-large" placeholder="UserId"></div>
     <div class="w3-col"><input type="password" id="pw" name="pw" class="w3-input w3-border w3-round w3-padding-large w3-margin-top w3-margin-bottom" placeholder="Password"></div>
   	<div class="w3-col"><div class="w3-col w3-button w3-blue w3-round w3-margin-top w3-padding-large" id="lbtn">LOGIN</div></div>
+  </form>
   	
   	<div class="w3-content w3-center" style="max-width: 300px;">
 	  	<div class="w3-col w3-center" style="font-size: 14px; margin-top: 20px;">
 	  	<!-- 아이디 찾기와 비번 찾기의 href는 javascript단에서 처리하기로 한다. -->
-	  		<div class="w3-third w3-text-gray"><a href="/clc/member/findpage.clc" id="idCk">아이디찾기</a></div>
+	  		<div class="w3-third w3-text-gray"><a href="/clc/member/idfindpage.clc" id="idCk">아이디찾기</a></div>
 	  		<div class="w3-third w3-text-gray"><a href="/clc/member/findpage.clc" id="pwCk">비밀번호찾기</a></div>
 	  		<div class="w3-third w3-text-gray"><a href="/clc/member/join.clc">회원가입</a></div>
 	  	</div>
 	</div>
-  </form>
   
   
   <hr>

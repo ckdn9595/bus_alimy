@@ -59,6 +59,10 @@ public class SearchDAO {
 					StationVO vo = new StationVO();
 					vo.setStation_id(rs.getInt("station_id"));
 					vo.setStation_nn(rs.getString("station_nm"));
+					vo.setLoc_x(rs.getDouble("x"));
+					vo.setLoc_y(rs.getDouble("y"));
+					vo.setMobile_no(rs.getString("mobile_no"));
+					vo.setRegion(rs.getNString("region"));
 					list.add(vo);
 				}
 			}catch(Exception e) {

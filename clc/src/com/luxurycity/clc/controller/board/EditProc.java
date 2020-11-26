@@ -13,8 +13,8 @@ public class EditProc implements ClcMain {
 		String view = "/clc/board/board.clc";
 		
 		// 파라미터 뽑기
-		String sno = (String)req.getAttribute("bno");
-		String body = (String)req.getAttribute("body");
+		String sno = (String)req.getParameter("bno");
+		String body = (String)req.getParameter("body");
 		int bno = 0;
 		try {
 			bno = Integer.parseInt(sno);

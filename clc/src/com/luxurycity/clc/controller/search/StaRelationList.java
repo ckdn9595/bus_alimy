@@ -41,10 +41,20 @@ public class StaRelationList implements ClcMain {
 		for(int i = 0 ; i < list.size(); i++) {
 			if(i < list.size()-1) {
 				buff.append("{"+"\"id\":\""+list.get(i).getStation_id()+"\""+ ",");						
-				buff.append("\"name\":\""+list.get(i).getStation_nn()+"\""+ "}"+ ",");								
+				buff.append("\"name\":\""+list.get(i).getStation_nn()+"\""+ ",");								
+				buff.append("\"x\":\""+list.get(i).getLoc_x()+"\""+ ",");								
+				buff.append("\"y\":\""+list.get(i).getLoc_y()+"\""+ ",");								
+				buff.append("\"mobile\":\""+list.get(i).getMobile_no()+"\""+ ",");								
+				buff.append("\"region\":\""+list.get(i).getRegion()+"\""+ "}"+",");								
 			}else {
-				buff.append("{"+"\"id\":\""+list.get(i).getStation_id()+"\""+ ",");							
-				buff.append("\"name\":\""+list.get(i).getStation_nn()+"\""+ "}"+"],\"memberCount\":"+ list.size());														
+				buff.append("{"+"\"id\":\""+list.get(i).getStation_id()+"\""+ ",");						
+				buff.append("\"name\":\""+list.get(i).getStation_nn()+"\""+ ",");								
+				buff.append("\"x\":\""+list.get(i).getLoc_x()+"\""+ ",");								
+				buff.append("\"y\":\""+list.get(i).getLoc_y()+"\""+ ",");								
+				buff.append("\"mobile\":\""+list.get(i).getMobile_no()+"\""+ ",");								
+				buff.append("\"region\":\""+list.get(i).getRegion()+"\""+ "}"+"],\"memberCount\":"+ list.size());														
+								
+							
 			}
 		}
 		buff.append("}");
