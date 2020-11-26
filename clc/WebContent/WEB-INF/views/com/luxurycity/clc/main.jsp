@@ -146,7 +146,7 @@ a:visited {
 			<h1 class="w3-col w3-center w3-margin-top w3-light-gray"><b>우아한 도시</b></h1>
 			<div class="w3-col w3-card-4 w3-light-gray style4">
 				
-				<form method="POST" action="">
+<!-- 				<form method="POST" action=""> -->
 			
 				<!-- 버스 검책창 -->
 					<div class="w3-col style5" id="bus">
@@ -163,11 +163,12 @@ a:visited {
 						<span class="w3-button w3-yellow style1" id="srcstation">검색</span>
 					</div>
 					
-					<div class="w3-card-2 stareset" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" style="display:none" id="bslist">
+					<div class="w3-card-2" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" id="bslist">
 						<div class="w3-col w3-button w3-hover-gray stalist" style="text-align: left; display: block;">정류소를 입력해주세요</div>	
 					</div>
+					
 		
-				</form>
+<!-- 				</form> -->
 				
 				<div class="w3-col w3-margin-top">
 					<span class="w3-button w3-green w3-col m6 w3-border-right" id="busbtn">버스</span>
@@ -178,7 +179,7 @@ a:visited {
 	</div>
 	
 	<!-- 버스 데이터 전송 담당 태그 -->
-	<form method="post" id="routefrm">
+	<form  method="post" id="routefrm">
 		<input type="hidden" name="routeid" id="routeid">
 		<input type="hidden" name="routenm" id="routenm">
 		<input type="hidden" name="routetype" id="routetype">

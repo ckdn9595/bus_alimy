@@ -108,7 +108,7 @@ a:visited {
 
   <hr>
 
-<form method="POST" action="/clc/member/myinfoedit.clc" id="frm" name="frm">
+<form method="POST" action="/clc/member/myinfoedit.clc" id="frm" name="frm" enctype="multipart/form-data">
 	<table border="1" class="tbl_model">
 
                 

@@ -64,7 +64,7 @@ public class BookmarkSQL {
 			buff.append("	bookmark ");
 			buff.append("values( ");
 			buff.append("		(select NVL(MAX(bmno)+1,1001) from bookmark), ");
-			buff.append("		1001, ?, null, 'Y' ");
+			buff.append("		(select mno from member where id = ?), ?, null, 'Y' ");
 			buff.append(" 		) ");
 			break;
 		case ADD_STA_MARK:
@@ -72,7 +72,7 @@ public class BookmarkSQL {
 			buff.append("	bookmark ");
 			buff.append("values( ");
 			buff.append("		(select NVL(MAX(bmno)+1,1001) from bookmark), ");
-			buff.append("		1001, null, ? , 'Y' ");
+			buff.append("		(select mno from member where id = ?), null, ? , 'Y' ");
 			buff.append(" 		) ");
 			break;
 		}

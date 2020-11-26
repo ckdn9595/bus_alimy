@@ -3,10 +3,28 @@ $(document).ready(function(){
 	$('.stBkAdd').click(function(){
 		// 해당 정류소 아이디 값 가져오고
 		var station_id = $('.stBkAdd').attr('id');
+		var valtype = "sta";
 		
-		// 폼 태그에 실어 전송
-		$('#stationId').val(station_id);
-		$('#frm').attr('action', '/clc/search/bookaddproc.clc');
-		$('#frm').submit();
+		
+		$.ajax({
+			url:'/clc/member/bookaddproc.clc',
+			type:'post',
+			dataType:'json',
+			data:{
+				addid:station_id,
+				type: valtype
+			},
+			success:function(data){
+				if(data.result == 'OK'){
+					$('.stBkAdd').removeClass('w3-blue');
+					$('.stBkAdd').addClass('w3-teal');
+				} else {
+					
+				}
+			},
+			error:function(){
+				alert('##에러당');
+			}
+		});
 	});
 });

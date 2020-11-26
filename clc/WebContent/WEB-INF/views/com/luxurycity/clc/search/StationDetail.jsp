@@ -79,7 +79,7 @@ h6{
 <c:if test="${not empty SID}">
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/ysun/img/avatar/img_avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+      <img src="/clc${AVT.dir}${AVT.afile}" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8">
       <span>Welcome, <strong>회원이름</strong></span><br>

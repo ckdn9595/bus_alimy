@@ -114,7 +114,14 @@ a:visited {
 				</c:if>
 					</div>
 				</div>
-				<div class="w3-col m2 w3-display-container" style="height: 60px;"><input type="checkbox" class="w3-check w3-display-middle w3-hide ckbox" name="dellist" value="${blist.bmno}"></div>
+				<div class="w3-col m2 w3-display-container" style="height: 120px;">
+					<div class="w3-col" style="height: 60px;">
+						<input type="checkbox" class="w3-check w3-display-middle w3-hide ckbox" name="dellist" value="${blist.bmno}">
+					</div>
+					<div class="w3-col" style="height: 60px;">
+						 <h5 class="w3-button w3-green" id="bsearch">검색</h5>
+					</div>
+				</div>
 			</div>
 		</div>
 </c:forEach>
@@ -135,7 +142,15 @@ a:visited {
 						<div class="w3-col"><b>${slist.station_nm}</b></div>
 					</div>
 				</div>
-				<div class="w3-col m2 w3-display-container" style="height: 60px;"><input type="checkbox" class="w3-check w3-display-middle w3-hide ckbox" name="dellist" value="${slist.bmno}"></div>
+				<div class="w3-col m2 w3-display-container" style="height: 120px;">
+					<div class="w3-col" style="height: 60px;">
+						<input type="checkbox" class="w3-check w3-display-middle w3-hide ckbox" name="dellist" value="${slist.bmno}">
+					</div>
+					<div class="w3-col" style="height: 60px;">
+						 <h5 class="w3-button w3-green" id="bssearch">검색</h5>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 </c:forEach>

@@ -107,13 +107,14 @@ public class BookmarkDAO {
 		}
 		return cnt;
 	}
-	public int AddBusMark(int busid) {
+	public int AddBusMark(String id, int busid) {
 		int cnt = 0;
 		con = db.getCon();
 		String sql = bSQL.getSQL(bSQL.ADD_BUS_MARK);
 		pstmt = db.getPSTMT(con, sql);
 		try {
-			pstmt.setInt(1, busid);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, busid);
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -123,13 +124,14 @@ public class BookmarkDAO {
 		}
 		return cnt;
 	}
-	public int AddStaMark(int staid) {
+	public int AddStaMark(String id, int staid) {
 		int cnt = 0;
 		con = db.getCon();
 		String sql = bSQL.getSQL(bSQL.ADD_STA_MARK);
 		pstmt = db.getPSTMT(con, sql);
 		try {
-			pstmt.setInt(1, staid);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, staid);
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
