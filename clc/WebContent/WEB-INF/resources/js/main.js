@@ -63,6 +63,13 @@ $(document).ready(function(){
 
 	$('#bssearch').focus(function() {
 		$('#bslist').css('display', 'block');
+		// 정류소 데이터 전송 담당 폼에 저장된 밸류값들을 삭제한다.
+		$('#stationid').val('');
+		$('#stationnm').val('');
+		$('#x').val('');
+		$('#y').val('');
+		$('#mobile').val('');
+		$('#region').val('');
 		$(this).val('');
 	});
 	var staoldVal = '';
@@ -70,7 +77,7 @@ $(document).ready(function(){
 	var autocomplete2 = $('.stalist');
 	
 	$("#bssearch").on("change keyup paste", function() {
-		$('.stalist').html('');
+		$('.stareset').html('');
 	    var sta = $(this).val();
 	    if(sta == staoldVal || sta == '') {
 	        return;
@@ -108,7 +115,21 @@ $(document).ready(function(){
 	$('#srcroute').click(function() {
 		$('#routefrm').submit();
 	});
+	
 	$('#srcstation').click(function() {
+		// 검색한 내용이 없으면 리턴
+		var stationid = $('#stationid').val();
+		var stationnm = $('#stationnm').val();
+		var x = $('#x').val();
+		var y = $('#y').val();
+		var mobile = $('#mobile').val();
+		var retion = $('#region').val();
+		if(!stationid){
+			alert('검색할 내용을 입력하세요.');
+			return;
+		}
+		// 정류소 검색 버튼을 누르면 정류소 상세 페이지로 이동
+		$('#stationfrm').attr('action', '/clc/search/stationdetail.clc');
 		$('#stationfrm').submit();
 	});
 	

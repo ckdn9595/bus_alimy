@@ -6,6 +6,9 @@ public class BookmarkSQL {
 	
 	public final int DEL_BOOKMARK = 2001;
 	
+	public final int ADD_BUS_MARK = 3001;
+	public final int ADD_STA_MARK = 3002;
+	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
 		switch(code) {
@@ -56,13 +59,21 @@ public class BookmarkSQL {
 			buff.append("    s.route_id = route.route_id ");
 			buff.append("    AND ed_sta_id = station.station_id ");
 			break;
-		case DEL_BOOKMARK:
-			buff.append("UPDATE ");
-			buff.append("    bookmark ");
-			buff.append("SET ");
-			buff.append("    isshow = 'N' ");
-			buff.append("WHERE ");
-			buff.append("    bmno = ? ");
+		case ADD_BUS_MARK:
+			buff.append("INSERT into ");
+			buff.append("	bookmark ");
+			buff.append("values( ");
+			buff.append("		(select NVL(MAX(bmno)+1,1001) from bookmark), ");
+			buff.append("		1001, ?, null, 'Y' ");
+			buff.append(" 		) ");
+			break;
+		case ADD_STA_MARK:
+			buff.append("INSERT into ");
+			buff.append("	bookmark ");
+			buff.append("values( ");
+			buff.append("		(select NVL(MAX(bmno)+1,1001) from bookmark), ");
+			buff.append("		1001, null, ? , 'Y' ");
+			buff.append(" 		) ");
 			break;
 		}
 		return buff.toString();
