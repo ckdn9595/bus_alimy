@@ -40,11 +40,12 @@ public class SearchSQL {
 				break;
 				case SEL_ST_LIST:
 					buff.append("select ");
-					buff.append("station_id , station_nm ");
+					buff.append("station_id, station_nm, x, y, mobile_no, region ");
 					buff.append("from  ");
-					buff.append("    station ");
+					buff.append("    station s, district d ");
 					buff.append("where ");
 					buff.append("    station_nm like ? ");
+					buff.append("    AND s.district_cd = d.district_cd ");
 					buff.append("order by station_nm ");
 				break;
 				
