@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/clc/css/cls.css">
 <script type="text/javascript" src="/clc/js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/clc/js/search/detail.js"></script>
+<script type="text/javascript" src="/clc/js/search/stationdetail.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 a:link {
@@ -140,45 +140,59 @@ h6{
 </form>
 
 	<!-- 이 영역에 데이터를 추가하면 됩니다 -->
-	<div class="w3-container w3-center w3-content">
-		<div class="mw800">
-			<div class="w3-col m10">
-				<div class="w3-co1 m1 w3-left w3-margin-right"><h5>정류소 : </h5></div>
-				<div class="w3-col m3 w3-left" id="stationiNm"><h5>&nbsp;구로디지털단지역</h5></div>
-			<div class="w3-right w3-btn btnword" id="add">추가</div>
+	<div class="w3-container">
+		<div class="w3-content w3-center w3-padding" style="max-width: 600px;">
+			<div class="w3-col">
+				<div class="w3-col">${SDATA.mobile_no}</div>
+				<div class="w3-col" id="stationiNm"><h3>${SDATA.station_nn}</h3></div>
+				<!-- <div class="w3-col">처인구정후문 방면</div>  -->
+			<div class="w3-right w3-button w3-round w3-blue w3-margin-bottom stBkAdd" id="${SDATA.station_id}">즐겨찾기 추가</div>
 			</div>
 			
-			<div class="w3-col m10 w3-padding w3-border w3-left-align">
+			<div class="w3-col w3-padding w3-border w3-left-align">
 				도착까지 5분 미만
 			</div>
-			<div class="w3-col m10 h50 textred w3-left-align">
-				<h6 class="title w3-text-red"><b>5,</b></h6>
-				<h6 class="title w3-text-red"><b>[구로]방향</b></h6>
+			<div class="w3-col h50 textred w3-left-align">
+				<h6 class="title w3-text-red"><b> - </b></h6>
+				<h6 class="title w3-text-red"><b> - </b></h6>
 			</div>
-			<div class="w3-col m10 w3-padding w3-border w3-left-align">
+			<div class="w3-col w3-padding w3-border w3-left-align">
 				도착까지 5분 이상
 			</div>
-			<div class="w3-col m10 h50 textgreen w3-left-align">
-				<h6 class="title w3-text-green"><b>500,</b></h6>
-				<h6 class="title w3-text-green"><b>[구로]방향</b></h6>
+			<div class="w3-col h50 textgreen w3-left-align">
+				<h6 class="title w3-text-green"><b> - </b></h6>
+				<h6 class="title w3-text-green"><b> - </b></h6>
 			</div>
-			<div class="w3-col m10 w3-padding w3-border w3-left-align">
-				정류소 상세정보
+			<div class="w3-col w3-padding w3-border w3-left-align">
+				경유 노선 정보
 			</div>
-			<div class="w3-col m10 text w3-left-align">
-				<h6 class="w3-col m2 w3-left title">관할지역 : </h6>
-				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 w3-left title"><b>정류소이름 : </b></h6>
-				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 w3-left title">정류소 고유번호 : </h6>
-				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 3-left title">위도 : </h6>
-				<h6 class="w3-col m9">&nbsp;value</h6>
-				<h6 class="w3-col m2 w3-left title">경도 : </h6>
-				<h6 class="w3-col m9">&nbsp;value</h6>
-			</div>	
+			<div class="w3-col text w3-left-align">
+				<div class="w3-col">
+<!-- 정류소 경유노선 리스트 -->					
+			<c:forEach var="rlist" items="${ROUTELIST}">		
+					<div class="w3-col w3-white w3-border-bottom" id="${rlist.route_id}">
+						<div class="w3-col w3-padding">
+							<div class="w3-col w3-border-bottom w3-border-blue w3-text-gray">${rlist.route_tp}</div>
+							<div class="w3-col m10" style="padding-top: 5px;">
+								<div class="w3-col m4 w3-border-right w3-border-blue">
+									<div class="w3-col"><span style="font-size: 32px;">${rlist.route_nm}</span> ( ${rlist.region} )</div>
+									<div class="w3-col">${rlist.ed_sta_nm} 방면</div>
+								</div>
+								<div class="w3-col m8 w3-padding">
+									<div class="w3-col"><b>약 <span style="font-size: 20px;"> - </span>분 [ - 번째 전, 여유]</b></div>
+									<div class="w3-col"><b>약 <span style="font-size: 20px;"> - </span>분 [ - 번째 전, 여유]</b></div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+			</c:forEach>
+					
+				</div>
+			</div>
 		</div>
 	</div>
+
 
   <hr>
   <div class="w3-container w3-dark-grey w3-padding-32">

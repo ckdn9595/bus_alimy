@@ -159,7 +159,7 @@ a:visited {
 					
 					<!-- 정류소 검책창 -->
 					<div class="w3-col style5 w3-hide" id="busstop">
-						<input type="text" placeholder="정류소를 입력하세요." id="bssearch" name="search" class="style2">
+						<input type="text" placeholder="정류소를 입력하세요." id="bssearch" name="search" class="style2" autocomplete="off">
 						<span class="w3-button w3-yellow style1" id="srcstation">검색</span>
 					</div>
 					
