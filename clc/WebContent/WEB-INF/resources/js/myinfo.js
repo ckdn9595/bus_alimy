@@ -21,4 +21,15 @@ $(document).ready(function(){
 	  mySidebar.style.display = "none";
 	  overlayBg.style.display = "none";
 	};
-})
+	
+	// 수정
+	$('#editbtn2').click(function() {
+		$('#frm').submit();
+	});
+	
+	// 삭제
+	$('#delbtn').click(function() {
+		$('#dfrm').submit();
+	});
+	
+});
