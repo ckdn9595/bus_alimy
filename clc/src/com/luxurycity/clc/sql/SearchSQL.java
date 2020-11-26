@@ -5,6 +5,9 @@ public class SearchSQL {
 		public final int SEL_BUS_LIST = 1005;
 		public final int SEL_ST_LIST = 1006;
 	
+
+		public final int SEL_BUS_DETAIL = 2005;
+
 		public final int STATION_DETAIL = 2001;
 		
 		public String getSQL(int code) {
@@ -37,7 +40,6 @@ public class SearchSQL {
 				buff.append("    r.route_cd = t.route_cd ");
 				buff.append("    and route_nm like ? ");
 				buff.append(" order by route_nm ");
-
 				break;
 			case SEL_ST_LIST:
 				buff.append("select ");
@@ -48,8 +50,21 @@ public class SearchSQL {
 				buff.append("    station_nm like ? ");
 				buff.append("    AND s.district_cd = d.district_cd ");
 				buff.append("order by station_nm ");
+			break;
+			case SEL_BUS_DETAIL:
+				buff.append("SELECT ");
+				buff.append("	rs.direction direction, d.region region, s.station_nm station_nm, ");
+				buff.append("	s.mobile_no mobile_no, rs.str_order str_order, r.peek_alloc peek, r.npeek_alloc npeek ");
+				buff.append("FROM ");
+				buff.append("	routestation rs, station s, district d, route r ");
+				buff.append("WHERE ");
+				buff.append("	rs.route_id = ? ");
+				buff.append("	AND rs.station_id = s.station_id ");
+				buff.append("	AND s.district_cd = d.district_cd ");
+				buff.append("	AND rs.route_id = r.route_id ");
+				buff.append("ORDER BY ");
+				buff.append("	str_order ");
 				break;
-			
 			case STATION_DETAIL:
 				buff.append("SELECT ");
 				buff.append("    e.*, st.station_nm AS ed_station_nm ");
