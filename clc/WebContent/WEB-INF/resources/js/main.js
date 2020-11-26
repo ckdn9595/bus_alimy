@@ -70,7 +70,7 @@ $(document).ready(function(){
 	var autocomplete2 = $('.stalist');
 	
 	$("#bssearch").on("change keyup paste", function() {
-		$('.stalist').html('');
+		$('.stareset').html('');
 	    var sta = $(this).val();
 	    if(sta == staoldVal || sta == '') {
 	        return;

@@ -107,4 +107,36 @@ public class BookmarkDAO {
 		}
 		return cnt;
 	}
+	public int AddBusMark(int busid) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = bSQL.getSQL(bSQL.ADD_BUS_MARK);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setInt(1, busid);
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+	public int AddStaMark(int staid) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = bSQL.getSQL(bSQL.ADD_STA_MARK);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setInt(1, staid);
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
 }
