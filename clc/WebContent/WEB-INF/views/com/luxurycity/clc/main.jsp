@@ -186,13 +186,14 @@ a:visited {
 		<input type="hidden" name="routeednm" id="routeednm">
 	</form>
 	
-	<!-- 버스 데이터 전송 담당 태그 -->
+	<!-- 정류소 데이터 전송 담당 태그 -->
 	<form method="post" id="stationfrm">
 		<input type="hidden" name="stationid" id="stationid">
 		<input type="hidden" name="stationnm" id="stationnm">
 		<input type="hidden" name="x" id="x">
 		<input type="hidden" name="y" id="y">
 		<input type="hidden" name="mobile" id="mobile">
+		<input type="hidden" name="region" id="region">
 	</form>
 
   <hr>
