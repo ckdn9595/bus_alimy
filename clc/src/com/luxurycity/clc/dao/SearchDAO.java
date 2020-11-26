@@ -74,4 +74,34 @@ public class SearchDAO {
 			}
 			return list;
 		}
+		
+		// 정류소 Detail 페이지에 띄울 경유노선들 정보 가져오는 작업 전담처리 함수
+		public ArrayList<RouteVO> getRouteStationDetail(int station_id){
+			ArrayList<RouteVO> list = new ArrayList<RouteVO>();
+			con = db.getCon();
+			String sql = sSQL.getSQL(sSQL.STATION_DETAIL);
+			pstmt = db.getPSTMT(con, sql);
+			try {
+				pstmt.setInt(1, station_id);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					RouteVO rVO = new RouteVO();
+					rVO.setRoute_nm(rs.getString("route_nm"));
+					rVO.setRegion(rs.getString("region"));
+					rVO.setEd_sta_nm(rs.getString("ed_station_nm"));
+					rVO.setRoute_id(rs.getInt("route_id"));
+					rVO.setRoute_tp(rs.getString("route_tp"));
+					list.add(rVO);
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close(rs);
+				db.close(pstmt);
+				db.close(con);
+			}
+			return list;
+		}
 }
