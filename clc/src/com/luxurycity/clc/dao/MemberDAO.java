@@ -190,4 +190,72 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	// 회원정보 아바타, 이메일 가져오기 전담 처리 함수
+	public MemberVO getAvtAll(String id) {
+		MemberVO mVO = new MemberVO();
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.MEM_GET_AVT);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			mVO.setAfile(rs.getString("afile"));
+			// dir
+			mVO.setName(rs.getString("dir"));
+			mVO.setAno(rs.getInt("ano"));
+			mVO.setMail(rs.getString("mail"));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return mVO;
+	}
+	
+	// 이메일 바꾸기 전담 처리 함수
+	public int editMail(String mail, String id) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.MEM_EDIT_MAIL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, mail);
+			pstmt.setString(2, id);
+			
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+	
+	// 회원정보 삭제 함수
+	public int delMember(int mno, String pw) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.MEM_INFO_DEL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setInt(1, mno);
+			pstmt.setString(2, pw);
+			
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+	
 }

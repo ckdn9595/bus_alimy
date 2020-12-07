@@ -153,13 +153,13 @@ a:visited {
 						<input type="text" placeholder="버스번호를 입력하세요." id="bsearch" name="search" class="style2">
 						<span class="w3-button w3-green style1" id="srcroute">검색</span>
 					</div>
-					<div class="w3-card-2" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" id="blist">
+					<div class="w3-card-2 busreset" style="width: 610px; float: left; background-color: white; display: none; margin-top: 50px; position: absolute;" id="blist">
 						<div class="w3-col w3-button w3-hover-gray buslist" style="text-align: left; display: block;">버스를 입력해주세요</div>		
 					</div>
 					
 					<!-- 정류소 검책창 -->
 					<div class="w3-col style5 w3-hide" id="busstop">
-						<input type="text" placeholder="정류소를 입력하세요." id="bssearch" name="search" class="style2">
+						<input type="text" placeholder="정류소를 입력하세요." id="bssearch" name="search" class="style2" autocomplete="off">
 						<span class="w3-button w3-yellow style1" id="srcstation">검색</span>
 					</div>
 					
